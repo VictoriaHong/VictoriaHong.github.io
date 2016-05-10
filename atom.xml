@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Victoria&#39;s Blog</title>
+  <subtitle>Way To Success</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://victoriahong.com/"/>
+  <updated>2016-05-10T00:29:51.000Z</updated>
+  <id>http://victoriahong.com/</id>
+  
+  <author>
+    <name>Victoria Hong</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python学习笔记1</title>
+    <link href="http://victoriahong.com/2016/05/Python1/"/>
+    <id>http://victoriahong.com/2016/05/Python1/</id>
+    <published>2016-05-09T05:02:28.000Z</published>
+    <updated>2016-05-10T00:29:51.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;有点杂乱的笔记，第一次读python小项目&quot;&gt;&lt;a href=&quot;#有点杂乱的笔记，第一次读python小项目&quot; class=&quot;headerlink&quot; title=&quot;有点杂乱的笔记，第一次读python小项目&quot;&gt;&lt;/a&gt;有点杂乱的笔记，第一次读python小项目&lt;/h2&gt;&lt;p&gt;关于shebang, click, decorator, random, ifmain, underscore用法, map &amp;amp; reduce &amp;amp; filter, self, yield, OOP, uuid, with.&lt;/p&gt;
+&lt;p&gt;感谢&lt;a href=&quot;http://www.wilbeibi.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@wilbeibi&lt;/a&gt;的帮助 &amp;lt;3&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;What does &lt;code&gt;#!/usr/bin/python&lt;/code&gt; mean?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#!&lt;/code&gt; is a mark for what interpreter to use for this script.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#!/usr/bin/python&lt;/code&gt; is called &lt;strong&gt;Shebang line&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you have several versions of Python installed, /usr/bin/env will ensure the interpreter used is the first one on your environment’s $PATH. The alternative would be to hardcode something like #!/usr/bin/python; that’s ok, but less flexible.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you want to use: &lt;code&gt;$python myscript.py&lt;/code&gt;, you don’t need that line at all. The system will call python and then python interpreter will run your script.&lt;/p&gt;
+&lt;p&gt;But if you intend to use: $./myscript.py, here is where you need it.&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href=&quot;http://stackoverflow.com/questions/2429511/why-do-people-write-usr-bin-env-python-on-the-first-line-of-a-python-script&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;StackOverFlowAnswer&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.tutorialspoint.com/python/python_if_else.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python IF…ELIF…ELSE Statements&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;if expression1:&amp;#10;  statements(s)&amp;#10;elif expression2:&amp;#10;  statements(s)&amp;#10;else:&amp;#10;  statements(s)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Library: Click&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Click is a command line library for Python.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import click&amp;#10;&amp;#10;@click.command()&amp;#10;@click.option(&amp;#39;--count&amp;#39;, default=1, help=&amp;#39;Number of greetings.&amp;#39;)&amp;#10;@click.option(&amp;#39;--name&amp;#39;, prompt=&amp;#39;Your name&amp;#39;,&amp;#10;              help=&amp;#39;The person to greet.&amp;#39;)&amp;#10;def hello(count, name):&amp;#10;    for x in range(count):&amp;#10;        click.echo(&amp;#39;Hello %s!&amp;#39; % name)&amp;#10;&amp;#10;if __name__ == &amp;#39;__main__&amp;#39;:&amp;#10;    hello()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Run this script:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ python hello.py --count=3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Get a hint: &lt;code&gt;Your name:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Input &lt;code&gt;John&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Hello John!&amp;#10;Hello John!&amp;#10;Hello John!&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Reference: &lt;a href=&quot;http://click.pocoo.org/5/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;$ Click&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Decorator&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Decorator Pattern 多用于wrapper class。在不改变原来class的基础上，添加新功能。一层一层包起来，可以变换顺序。&lt;/p&gt;
+&lt;p&gt;Python的annotation类似于函数式编程。&lt;/p&gt;
+&lt;p&gt;一个例子:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;def hello(fn)&amp;#10;  def wrapper():&amp;#10;    print &amp;#34;hello, %s&amp;#34; % fn.__name__&amp;#10;    fn()&amp;#10;    print &amp;#34;goodbye, %s&amp;#34; % fn.__name__&amp;#10;&amp;#10;@hello&amp;#10;def foo():&amp;#10;  print &amp;#34;I am foo&amp;#34;&amp;#10;&amp;#10;foo()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;foo()是一个全局的方法，可以当做main函数执行，上面的代码相当于 foo = hello(foo)。&lt;/p&gt;
+&lt;p&gt;输出：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hello, foo&amp;#10;I am foo&amp;#10;goodbye, foo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hello(foo)返回了wrapper()函数，所以，foo其实变成了wrapper的一个变量，而后面的foo()执行其实变成了wrapper()。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Decorator还可以包裹多层，加参数。&lt;/p&gt;
+&lt;p&gt;Reference:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.xiayf.cn/2013/01/04/Decorators-and-Functional-Python/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;装饰器与函数式Python(译)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://coolshell.cn/articles/11265.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python修饰器的函数式编程&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;choice &amp;amp; randint&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;from random import randint&amp;#10;from random import choice&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;randint(0, 23)&lt;/code&gt; 0~23闭合区间中随机一个，可重复。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;choice(list)&lt;/code&gt; list中随机一个，可重复。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;range&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;range(1,5)&lt;/code&gt; [1, 2, 3, 4]左闭右开。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;list的一个用法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;list = [1, 2, 3, “a”]&lt;/p&gt;
+&lt;p&gt;list[2:3] –&amp;gt; [2, 3]&lt;/p&gt;
+&lt;p&gt;list[::-1] –&amp;gt; [“a”, 3, 2, 1]实现了逆序输出。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;if __name__ == &amp;quot;__main__&amp;quot;:&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;类似于java中的main函数。&lt;/p&gt;
+&lt;p&gt;python是解释型语言。一行一行读出来，所以代码顺序会影响执行结果。当读到main时候，执行main的内容，所以main一般放在最后，不然有一部分代码还没读到会报错。&lt;/p&gt;
+&lt;p&gt;关于编译器和解释器的区别：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/gGRoMLS.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;关于执行顺序的一个例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# file one.py&amp;#10;def func():&amp;#10;    print(&amp;#34;func() in one.py&amp;#34;)&amp;#10;&amp;#10;print(&amp;#34;top-level in one.py&amp;#34;)&amp;#10;&amp;#10;if __name__ == &amp;#34;__main__&amp;#34;:&amp;#10;    print(&amp;#34;one.py is being run directly&amp;#34;)&amp;#10;else:&amp;#10;    print(&amp;#34;one.py is being imported into another module&amp;#34;)&amp;#10;&amp;#10;# file two.py&amp;#10;import one&amp;#10;&amp;#10;print(&amp;#34;top-level in two.py&amp;#34;)&amp;#10;one.func()&amp;#10;&amp;#10;if __name__ == &amp;#34;__main__&amp;#34;:&amp;#10;    print(&amp;#34;two.py is being run directly&amp;#34;)&amp;#10;else:&amp;#10;    print(&amp;#34;two.py is being imported into another module&amp;#34;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;运行：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;python one.py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;得到：&lt;/p&gt;
+&lt;p&gt;top-level in one.py&lt;/p&gt;
+&lt;p&gt;one.py is being run directly&lt;/p&gt;
+&lt;p&gt;先print再到main。&lt;/p&gt;
+&lt;p&gt;运行：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;python two.py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;得到：&lt;/p&gt;
+&lt;p&gt;top-level in one.py&lt;/p&gt;
+&lt;p&gt;one.py is being imported into another module&lt;/p&gt;
+&lt;p&gt;top-level in two.py&lt;/p&gt;
+&lt;p&gt;func() in one.py&lt;/p&gt;
+&lt;p&gt;two.py is being run directly&lt;/p&gt;
+&lt;p&gt;先one的print再到one的main。two的print，到one.fuc(),最后到two的main。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;when module one gets loaded, its &lt;code&gt;__name__&lt;/code&gt; equals “one” instead of &lt;code&gt;__main__&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Reference: &lt;a href=&quot;http://stackoverflow.com/questions/419163/what-does-if-name-main-do&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;what does if main do&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Underscore in python&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;_single_leading_underscore&lt;/code&gt;: weak “internal use” indicator. E.g. “from M import …” does not import objects whose name starts with an underscore.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Python doesn’t have real private methods, so one underline in the start of a method or attribute means you shouldn’t access this method, because it’s not part of the API.&lt;/p&gt;
+&lt;p&gt;2.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;single_trailing_underscore_&lt;/code&gt;: used by convention to avoid conflicts with Python keyword, e.g. &lt;code&gt;Tkinter.Toplevel(master, class_=&amp;#39;ClassName&amp;#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;3.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;__double_leading_underscore&lt;/code&gt;: when naming a class attribute, invokes name mangling.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It makes a lot of confusion. It should not be used to create a private method. It should be used to avoid your method to be overridden by a subclass. So, when you create a method starting with __ it means that you don’t want anyone to override it, it will be accessible only from inside the class where it was defined.&lt;/p&gt;
+&lt;p&gt;子类中如果有个跟父类一样的double underscore 开头的方法，那么子类的是不能覆盖父类的方法的。&lt;/p&gt;
+&lt;p&gt;4.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;__double_leading_and_trailing_underscore__&lt;/code&gt;: “magic” objects or attributes that live in user-controlled namespaces. E.g. &lt;code&gt;__init__&lt;/code&gt;, &lt;code&gt;__import__&lt;/code&gt; or &lt;code&gt;__file__&lt;/code&gt;. Never invent such names; only use them as documented.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;__this__&lt;/code&gt;是python自动调用的方法。&lt;/p&gt;
+&lt;p&gt;Reference:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/8689964/python-why-do-some-functions-have-underscores-before-and-after-the-functio&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;why have underscores before and after function&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;style guide&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;functionName.__name__&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;One of attributes of this function.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;map &amp;amp; reduce&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Map(func, list) 是把一个function用在list所有元素上。&lt;/p&gt;
+&lt;p&gt;Reduce(func, list) 是按照function的方法将list所有元素合并成一个。&lt;/p&gt;
+&lt;p&gt;Filter(func, list) 是把运用function后return为true的元素筛选出来。&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href=&quot;http://www.python-course.eu/lambda.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Lambda, filter, reduce and map&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Python的OOP如何&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于静态语言（例如Java）来说，如果需要传入Animal类型，则传入的对象必须是Animal类型或者它的子类，否则，将无法调用run()方法。&lt;/p&gt;
+&lt;p&gt;对于Python这样的动态语言来说，则不一定需要传入Animal类型。我们只需要保证传入的对象有一个run()方法就可以了。&lt;/p&gt;
+&lt;p&gt;动态语言的鸭子类型特点决定了继承不像静态语言那样是必须的。&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href=&quot;http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431865288798deef438d865e4c2985acff7e9fad15e3000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;继承和多态&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;yield&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;yield&lt;/code&gt; is a keyword that is used like return, except the function will return a generator.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;产生一个generator，需要遍历一遍得到内容。或者转成list(generator)。&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href=&quot;http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;What does the yield keyword do in Python?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;self&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;self 就代表要这个方法作用的Object。&lt;/p&gt;
+&lt;p&gt;没有self的类似于static修饰的。不过牵扯到引用传递还是值传递的问题略复杂。反正list是可以共享的，int, string啥的不行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;uuid&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The uuid module implements Universally Unique Identifiers as described in RFC 4122.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;无题&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;with open(self.file_path, &amp;#39;w&amp;#39;) as f:&amp;#10;          f.write(self.code)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;with&lt;/code&gt; 类似于 &lt;code&gt;try catch&lt;/code&gt;，可以执行才执行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;有点杂乱的笔记，第一次读python小项目&quot;&gt;&lt;a href=&quot;#有点杂乱的笔记，第一次读python小项目&quot; class=&quot;headerlink&quot; title=&quot;有点杂乱的笔记，第一次读python小项目&quot;&gt;&lt;/a&gt;有点杂乱的笔记，第一次读python小项目&lt;/h2&gt;&lt;p&gt;关于shebang, click, decorator, random, ifmain, underscore用法, map &amp;amp; reduce &amp;amp; filter, self, yield, OOP, uuid, with.&lt;/p&gt;
+&lt;p&gt;感谢&lt;a href=&quot;http://www.wilbeibi.com&quot;&gt;@wilbeibi&lt;/a&gt;的帮助 &amp;lt;3&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+      <category term="python" scheme="http://victoriahong.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog Update 1</title>
+    <link href="http://victoriahong.com/2016/05/xinhong1/"/>
+    <id>http://victoriahong.com/2016/05/xinhong1/</id>
+    <published>2016-05-09T04:33:26.000Z</published>
+    <updated>2016-05-09T04:57:50.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Favicon-amp-Paper&quot;&gt;&lt;a href=&quot;#Favicon-amp-Paper&quot; class=&quot;headerlink&quot; title=&quot;Favicon &amp;amp; Paper&quot;&gt;&lt;/a&gt;Favicon &amp;amp; Paper&lt;/h2&gt;&lt;p&gt;Use an ios app named &lt;a href=&quot;https://www.fiftythree.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Paper&lt;/a&gt; to draw a favicon for my blog. lol&lt;/p&gt;
+&lt;p&gt;Hope you enjoy it :)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://burner.bonanza.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Remove background from images&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;My favicon:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/5git7z3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Favicon-amp-Paper&quot;&gt;&lt;a href=&quot;#Favicon-amp-Paper&quot; class=&quot;headerlink&quot; title=&quot;Favicon &amp;amp; Paper&quot;&gt;&lt;/a&gt;Favicon &amp;amp; Paper&lt;/h2&gt;&lt;p&gt;Use an
+    
+    </summary>
+    
+      <category term="Life" scheme="http://victoriahong.com/categories/Life/"/>
+    
+    
+      <category term="Blog" scheme="http://victoriahong.com/tags/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithms Part I Week 2</title>
+    <link href="http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/"/>
+    <id>http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/</id>
+    <published>2016-05-07T06:35:09.000Z</published>
+    <updated>2016-05-07T06:38:49.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Stacks-and-Queues-amp-Elementary-Sorts&quot;&gt;&lt;a href=&quot;#Stacks-and-Queues-amp-Elementary-Sorts&quot; class=&quot;headerlink&quot; title=&quot;Stacks and Queues &amp;amp; Elementary Sorts&quot;&gt;&lt;/a&gt;Stacks and Queues &amp;amp; Elementary Sorts&lt;/h2&gt;&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Modular programming style&lt;/li&gt;
+&lt;li&gt;For stack, push pop&lt;ul&gt;
+&lt;li&gt;Each operation cost constant time in the worst case&lt;/li&gt;
+&lt;li&gt;Extra time and space to deal with the link&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For queue, enqueue dequeue&lt;ul&gt;
+&lt;li&gt;Each operation cost constant amortized time&lt;/li&gt;
+&lt;li&gt;less wasted space&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Generics&lt;/li&gt;
+&lt;li&gt;Iterator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Stacks&quot;&gt;&lt;a href=&quot;#Stacks&quot; class=&quot;headerlink&quot; title=&quot;Stacks&quot;&gt;&lt;/a&gt;Stacks&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Linked-list implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class LinkedStackOfStrings &amp;#123;&amp;#10;&amp;#9;private Node first = null;&amp;#10;&amp;#10;&amp;#9;private class Node &amp;#123;&amp;#10;&amp;#9;&amp;#9;String item;&amp;#10;&amp;#9;&amp;#9;Node next;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public boolean isEmpty()&amp;#123;&amp;#10;&amp;#9;&amp;#9;return first == null;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public String pop()&amp;#123;&amp;#10;&amp;#9;&amp;#9;String item = first.item;&amp;#10;&amp;#9;&amp;#9;first = first.next;&amp;#10;&amp;#9;&amp;#9;return item;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public void push(String item)&amp;#123;&amp;#10;&amp;#9;&amp;#9;Node oldFirst = first;&amp;#10;&amp;#9;&amp;#9;first = new Node();&amp;#10;&amp;#9;&amp;#9;first.item = item;&amp;#10;&amp;#9;&amp;#9;first.next = oldFirst;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Performance:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Operations takes constant time&lt;/li&gt;
+&lt;li&gt;40N bytes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Array implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;s[N]&lt;/p&gt;
+&lt;p&gt;push() –&amp;gt; add new item at s[N]&lt;/p&gt;
+&lt;p&gt;pop() –&amp;gt; remove item from s[N-1]&lt;/p&gt;
+&lt;p&gt;Defects:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;May cause stack overflow when N exceeds capacity&lt;/li&gt;
+&lt;li&gt;Loitering problem (after pop, still keep a reference, can’t be GCed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Resizing-array implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;push() –&amp;gt; double size of s[] when it is full&lt;/p&gt;
+&lt;p&gt;pop() –&amp;gt; halve size of s[] when it is one-quarter full&lt;/p&gt;
+&lt;p&gt;Performance:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;operation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;best&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;worst&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;aver&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;construct&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;push&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;pop&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;size&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;8N when full; 32N when one-quarter full&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Queue&quot;&gt;&lt;a href=&quot;#Queue&quot; class=&quot;headerlink&quot; title=&quot;Queue&quot;&gt;&lt;/a&gt;Queue&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Linked-list implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class LinkedQueueOfStrings&amp;#123;&amp;#10;&amp;#9;private Node first, last;&amp;#10;&amp;#10;&amp;#9;private class Node &amp;#123;&amp;#10;&amp;#9;&amp;#9;String item;&amp;#10;&amp;#9;&amp;#9;Node next;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public boolean isEmpty()&amp;#123;&amp;#10;&amp;#9;&amp;#9;return first == null;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public void enqueue(String item)&amp;#123;&amp;#10;&amp;#9;&amp;#9;Node oldLast = last;&amp;#10;&amp;#9;&amp;#9;last = new Node();&amp;#10;&amp;#9;&amp;#9;last.item = item;&amp;#10;&amp;#9;&amp;#9;last.next = null;&amp;#10;&amp;#9;&amp;#9;if (isEmpty()) first = last;&amp;#10;&amp;#9;&amp;#9;else oldLast.next = last;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public String dequeue()&amp;#123;&amp;#10;&amp;#9;&amp;#9;String item = first.item;&amp;#10;&amp;#9;&amp;#9;first = first.next;&amp;#10;&amp;#9;&amp;#9;if (isEmpty()) last = null;&amp;#10;&amp;#9;&amp;#9;return item;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Generics&quot;&gt;&lt;a href=&quot;#Generics&quot; class=&quot;headerlink&quot; title=&quot;Generics&quot;&gt;&lt;/a&gt;Generics&lt;/h3&gt;&lt;p&gt;In a nutshell, generics enable types (classes and interfaces) to be parameters when defining classes, interfaces and methods.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class FixedCapacityStack(int capacity)&amp;#123;&amp;#10;&amp;#9;s = (Item[]) new Object[capacity];&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Java don’t allow create an array in generic type, so an ugly cast is needed here. Get a warning.&lt;/p&gt;
+&lt;p&gt;Primitive type has a wrapper class. Autoboxing can cast btw a primitive type and its wrapper automatically behind the scenes.&lt;/p&gt;
+&lt;h3 id=&quot;Iterators&quot;&gt;&lt;a href=&quot;#Iterators&quot; class=&quot;headerlink&quot; title=&quot;Iterators&quot;&gt;&lt;/a&gt;Iterators&lt;/h3&gt;&lt;p&gt;Iterable is an interface which can return an iterator.&lt;/p&gt;
+&lt;p&gt;Iterator is an interface which has methods: hasNext() and next().&lt;/p&gt;
+&lt;p&gt;Foreach statement is equivalent to&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Iterator&amp;#60;String&amp;#62; i = stack.iterator();&amp;#10;&amp;#10;while(i.hasNext())&amp;#123;&amp;#10;&amp;#9;String s = i.next();&amp;#10;&amp;#9;//do sth with s&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;When order doesn’t matter, we use &lt;strong&gt;Bag API&lt;/strong&gt;. Bag implements iterable interface. Method: add(), size(), iterator().&lt;/p&gt;
+&lt;h3 id=&quot;Stack-and-queue-applications&quot;&gt;&lt;a href=&quot;#Stack-and-queue-applications&quot; class=&quot;headerlink&quot; title=&quot;Stack and queue applications&quot;&gt;&lt;/a&gt;Stack and queue applications&lt;/h3&gt;&lt;p&gt;List collection implements iterable interface. But it is too broad.&lt;/p&gt;
+&lt;p&gt;Dijkstra’s &lt;strong&gt;&lt;a href=&quot;http://algs4.cs.princeton.edu/13stacks/Evaluate.java.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;two-stack algorithm&lt;/a&gt;&lt;/strong&gt; to evaluate n arithmetic expression. Value stack and Operator stack. Omit ‘(‘ but pop when ‘)’.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Stacks-and-Queues-amp-Elementary-Sorts&quot;&gt;&lt;a href=&quot;#Stacks-and-Queues-amp-Elementary-Sorts&quot; class=&quot;headerlink&quot; title=&quot;Stacks and Queues &amp;amp; Elementary Sorts&quot;&gt;&lt;/a&gt;Stacks and Queues &amp;amp; Elementary Sorts&lt;/h2&gt;&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Modular programming style&lt;/li&gt;
+&lt;li&gt;For stack, push pop&lt;ul&gt;
+&lt;li&gt;Each operation cost constant time in the worst case&lt;/li&gt;
+&lt;li&gt;Extra time and space to deal with the link&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For queue, enqueue dequeue&lt;ul&gt;
+&lt;li&gt;Each operation cost constant amortized time&lt;/li&gt;
+&lt;li&gt;less wasted space&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Generics&lt;/li&gt;
+&lt;li&gt;Iterator&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Algorithms" scheme="http://victoriahong.com/tags/Algorithms/"/>
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git Command Cheatsheet</title>
+    <link href="http://victoriahong.com/2016/05/GitCommandCheatsheet/"/>
+    <id>http://victoriahong.com/2016/05/GitCommandCheatsheet/</id>
+    <published>2016-05-03T01:38:41.000Z</published>
+    <updated>2016-05-03T01:42:56.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;My-A-to-Z&quot;&gt;&lt;a href=&quot;#My-A-to-Z&quot; class=&quot;headerlink&quot; title=&quot;My A to Z&quot;&gt;&lt;/a&gt;My A to Z&lt;/h2&gt;&lt;p&gt;Help yourself with these cookies.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 
+&lt;h3 id=&quot;Concepts&quot;&gt;&lt;a href=&quot;#Concepts&quot; class=&quot;headerlink&quot; title=&quot;Concepts&quot;&gt;&lt;/a&gt;Concepts&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;HEAD&lt;/strong&gt; is the symbolic name for the currently checked out commit – it’s essentially what commit you’re working on top of.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git check branch_name&lt;/code&gt; will sync HEAD with latest branch. Check out a commit will attach HEAD to that commit.&lt;/p&gt;
+&lt;h3 id=&quot;Commit&quot;&gt;&lt;a href=&quot;#Commit&quot; class=&quot;headerlink&quot; title=&quot;Commit&quot;&gt;&lt;/a&gt;Commit&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout origin master &amp;amp;&amp;amp; git commit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;http://i.imgur.com/HeNywjX.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Reverse-Changes&quot;&gt;&lt;a href=&quot;#Reverse-Changes&quot; class=&quot;headerlink&quot; title=&quot;Reverse Changes&quot;&gt;&lt;/a&gt;Reverse Changes&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git reset HEAD~1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Reset local current commit to 1 step before HEAD.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git revert HEAD~1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Revert remote pushed commit to 1 step before HEAD.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git fetch &amp;amp;&amp;amp; git rebase origin master &amp;amp;&amp;amp; git push&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;git pull --rebase&lt;/code&gt; is short for &lt;code&gt;git fetch &amp;amp;&amp;amp; git rebase&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Cmu9UdI.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Branch&quot;&gt;&lt;a href=&quot;#Branch&quot; class=&quot;headerlink&quot; title=&quot;Branch&quot;&gt;&lt;/a&gt;Branch&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout -b new_branch&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Create a new branch and check out.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git branch -d my_branch&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Delete a new branch.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout my_branch&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Before checking out to another branch, commit or revert changes. You branch becomes visible only if you push it to origin branch.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git reset --hard HEAD&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Discard all uncommitted changes at local repo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git fetch origin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;git reset --hard origin master&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Discard all committed changes at local repo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git merge my_branch&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Check out master branch and then merge your own branch to master.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git add &amp;lt;filename&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  After solving all conflicts, mark as merged.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout branch_name^&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Caret(^) is relative ref to parent. ^^ is to grandparent. Alternative to hash.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git checkout HEAD~4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Equivalent to HEAD^^^^.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git branch -f master HEAD~3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Moves (by force) the master branch to three parents behind HEAD.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Fetch-Data&quot;&gt;&lt;a href=&quot;#Fetch-Data&quot; class=&quot;headerlink&quot; title=&quot;Fetch Data&quot;&gt;&lt;/a&gt;Fetch Data&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git fetch&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Downloads the commits that the remote has but are missing from our local repository, and updates where our remote branches point (for instance, origin master).&lt;/p&gt;
+&lt;p&gt;  Git fetch, however, does not change anything about your local state. It will not update your master branch or change anything about how your file system looks right now.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git pull&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Equivalent to &lt;code&gt;git fetch &amp;amp;&amp;amp; git merge&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;http://i.imgur.com/7nCIfHw.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Tricks&quot;&gt;&lt;a href=&quot;#Tricks&quot; class=&quot;headerlink&quot; title=&quot;Tricks&quot;&gt;&lt;/a&gt;Tricks&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git mv old_name new_name &amp;amp;&amp;amp; git commit -m &amp;amp;&amp;amp; git push origin master&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Git can’t track file renaming but only content modification. So deal with it separately. Do it at the dir where the files locate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git diff &amp;lt;source_branch&amp;gt; &amp;lt;target-branch&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Check difference between two versions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git log&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Get id for your commit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git tag 1.0.0 &amp;lt;id&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Id can be less than 10 characters but should be unique.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git rebase master&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;http://i.imgur.com/KDFUWgL.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git cherry-pick c1 c2 c3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Git cherry-pick is great when you know which commits you want (and you know their corresponding hashes).&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;http://i.imgur.com/SRF66QK.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git rebase -i HEAD~4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Interactive rebase. From current to 4 steps before, choose the commits you need and order them. New branch starts from 4 step before.&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;http://i.imgur.com/ura6v9g.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git rebase -i &amp;amp;&amp;amp; git commit --amend&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  We used rebase -i to reorder the commits. Once the commit we wanted to change was on top, we could easily –amend it and re-order back to our preferred order.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git fakeTeamwork&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Fake teamwork on remote repo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/ynxS8Ap.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference:&quot;&gt;&lt;/a&gt;Reference:&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://pcottle.github.io/learnGitBranching/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Learn Git Branching&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;My-A-to-Z&quot;&gt;&lt;a href=&quot;#My-A-to-Z&quot; class=&quot;headerlink&quot; title=&quot;My A to Z&quot;&gt;&lt;/a&gt;My A to Z&lt;/h2&gt;&lt;p&gt;Help yourself with these cookies.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Git" scheme="http://victoriahong.com/tags/Git/"/>
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bittiger 硅谷之路 46</title>
+    <link href="http://victoriahong.com/2016/04/Bittiger-%E7%A1%85%E8%B0%B7%E4%B9%8B%E8%B7%AF46/"/>
+    <id>http://victoriahong.com/2016/04/Bittiger-硅谷之路46/</id>
+    <published>2016-04-29T22:42:32.000Z</published>
+    <updated>2016-04-29T23:44:10.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;p&gt;OOD for Blackjack game&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Diagram&quot;&gt;&lt;a href=&quot;#Diagram&quot; class=&quot;headerlink&quot; title=&quot;Diagram&quot;&gt;&lt;/a&gt;Diagram&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/gOUXtwk.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Player and Dealer extends dealer&lt;/li&gt;
+&lt;li&gt;Strategy Pattern&lt;/li&gt;
+&lt;li&gt;Don’t forget Game room&lt;/li&gt;
+&lt;li&gt;还原世界，探求合理，生长迭代&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;p&gt;OOD for Blackjack game&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Bittiger" scheme="http://victoriahong.com/tags/Bittiger/"/>
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+      <category term="OOD" scheme="http://victoriahong.com/tags/OOD/"/>
+    
+      <category term="硅谷之路" scheme="http://victoriahong.com/tags/%E7%A1%85%E8%B0%B7%E4%B9%8B%E8%B7%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bittiger 硅谷之路 44 &amp; 45</title>
+    <link href="http://victoriahong.com/2016/04/Bittiger-%E7%A1%85%E8%B0%B7%E4%B9%8B%E8%B7%AF44and45/"/>
+    <id>http://victoriahong.com/2016/04/Bittiger-硅谷之路44and45/</id>
+    <published>2016-04-29T22:22:17.000Z</published>
+    <updated>2016-04-29T22:32:11.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;p&gt;How to write crawler code and how to improve it step by step.&lt;/p&gt;
+&lt;p&gt;Multi-thread concurrency design with mutex and semaphore.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Crawler&quot;&gt;&lt;a href=&quot;#Crawler&quot; class=&quot;headerlink&quot; title=&quot;Crawler&quot;&gt;&lt;/a&gt;Crawler&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import urllib2&amp;#10;url=&amp;#39;http://yue.ifeng.com/a/20150717/39747647_0.shtml&amp;#39;&amp;#10;request = urllib2.Request(url)&amp;#10;response = urllib2.urlopen(request)&amp;#10;page = response.read()&amp;#10;webFile = open(&amp;#39;webPage.html&amp;#39;,&amp;#39;wb&amp;#39;)&amp;#10;webFile.write(page)&amp;#10;webFile.close()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Q1-What-is-the-network-process-after-crawl-a-web-page&quot;&gt;&lt;a href=&quot;#Q1-What-is-the-network-process-after-crawl-a-web-page&quot; class=&quot;headerlink&quot; title=&quot;Q1: What is the network process after crawl a web page?&quot;&gt;&lt;/a&gt;Q1: What is the network process after crawl a web page?&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Step&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Crawler&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Web Server&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;socket()&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;socket()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;bind()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;listen()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;connect()&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;accept()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;read() &amp;amp; write()&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;read() &amp;amp; write()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;3&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;close()&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;close()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;TCP 3-way handshake: SYN, SYN-ACK, ACK&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Layers&lt;/p&gt;
+&lt;p&gt;  Application layer &lt;code&gt;FTP HTTP DNS&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Abstract layer &lt;code&gt;Socket&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Transportation layer &lt;code&gt;TCP UDP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Network layer &lt;code&gt;IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  Link layer &lt;code&gt;Hardware interface&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;http://coolshell.cn/articles/11564.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Q2-What-is-HTML&quot;&gt;&lt;a href=&quot;#Q2-What-is-HTML&quot; class=&quot;headerlink&quot; title=&quot;Q2: What is HTML&quot;&gt;&lt;/a&gt;Q2: What is HTML&lt;/h3&gt;&lt;p&gt;Tree structure&lt;/p&gt;
+&lt;h3 id=&quot;Q3-crawl-all-the-news-from-a-website&quot;&gt;&lt;a href=&quot;#Q3-crawl-all-the-news-from-a-website&quot; class=&quot;headerlink&quot; title=&quot;Q3: crawl all the news from a website&quot;&gt;&lt;/a&gt;Q3: crawl all the news from a website&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;identify a list page&lt;/li&gt;
+&lt;li&gt;identify the links with and find a pattern&lt;/li&gt;
+&lt;li&gt;find all with regex&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Architecture v1&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;list crawler –&amp;gt; links of news –&amp;gt; news crawler –&amp;gt; pages of news&lt;/p&gt;
+&lt;h3 id=&quot;Q4-crawl-form-other-websites&quot;&gt;&lt;a href=&quot;#Q4-crawl-form-other-websites&quot; class=&quot;headerlink&quot; title=&quot;Q4: crawl form other websites&quot;&gt;&lt;/a&gt;Q4: crawl form other websites&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Architecture v2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;design a crawler for each website(list and page)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Architecture v3&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;same crawler for all websites&lt;/p&gt;
+&lt;p&gt;scheduler has a &lt;strong&gt;taskTable&lt;/strong&gt;: id, priority(0,1), type(list, page), state(new, done, working), link, availableTime, endTime&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;while(true)&amp;#10;  lock(taskTable)&amp;#10;  while taskTable.find(&amp;#34;state=new&amp;#34;) == null&amp;#10;    Release(taskTable)&amp;#10;    Sleep(1s)&amp;#10;    lock(taskTable)&amp;#10;&amp;#10;  task = taskTable.findOne(&amp;#34;state=new&amp;#34;)&amp;#10;  task.state = &amp;#34;working&amp;#34;&amp;#10;  Release(taskTable)&amp;#10;&amp;#10;  page = Crawl(task.url)&amp;#10;&amp;#10;  if task.type == &amp;#34;list&amp;#34;&amp;#10;    lock(taskTable)&amp;#10;    For newTask in page:&amp;#10;      taskTable.Add(newTask)&amp;#10;    task.state = &amp;#34;done&amp;#34;&amp;#10;    Release(taskTable)&amp;#10;  Else&amp;#10;    lock(pageTable)&amp;#10;    pageTable.Add(page)&amp;#10;    Release(pageTable)&amp;#10;    lock(taskTable)&amp;#10;    task.state = &amp;#34;done&amp;#34;&amp;#10;    Release(taskTable)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Q5-design-scheduler-with-conditional-variable&quot;&gt;&lt;a href=&quot;#Q5-design-scheduler-with-conditional-variable&quot; class=&quot;headerlink&quot; title=&quot;Q5: design scheduler with conditional variable&quot;&gt;&lt;/a&gt;Q5: design scheduler with conditional variable&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;while(true)&amp;#10;  lock(taskTable)&amp;#10;  while taskTable.find(&amp;#34;state=new&amp;#34;) == null&amp;#10;    Cond_Wait(cond, taskTable)&amp;#10;  task = taskTable.findOne(&amp;#34;state=new&amp;#34;)&amp;#10;  task.state = &amp;#34;working&amp;#34;&amp;#10;  Release(taskTable)&amp;#10;&amp;#10;  page = Crawl(task.url)&amp;#10;&amp;#10;  if task.type == &amp;#34;list&amp;#34;&amp;#10;    lock(taskTable)&amp;#10;    For newTask in page:&amp;#10;      taskTable.Add(newTask)&amp;#10;      Cond_Signal(cond)&amp;#10;    task.state = &amp;#34;done&amp;#34;&amp;#10;    Release(taskTable)&amp;#10;  Else&amp;#10;    lock(pageTable)&amp;#10;    pageTable.Add(page)&amp;#10;    Release(pageTable)&amp;#10;    lock(taskTable)&amp;#10;    task.state = &amp;#34;done&amp;#34;&amp;#10;    Release(taskTable)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Cond_Wait(cond, mutex)&amp;#10;  Lock(cond.threadWaitList)&amp;#10;  cond.threadWaitList.Add(this.thread)&amp;#10;  Release(cond.threadWaitList)&amp;#10;&amp;#10;  Release(mutex)&amp;#10;  Block(this.thread)&amp;#10;  Lock(mutex)&amp;#10;&amp;#10;&amp;#10;Cond_Signal(cond)&amp;#10;  Lock(cond.threadWaitList)&amp;#10;  if cond.threadWaitList.size &amp;#62; 0&amp;#10;    thread = cond.threadWaitList.Pop()&amp;#10;    Wakeup(thread)&amp;#10;   Release(cond.threadWaitList)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Q6-design-scheduler-with-semaphore&quot;&gt;&lt;a href=&quot;#Q6-design-scheduler-with-semaphore&quot; class=&quot;headerlink&quot; title=&quot;Q6: design scheduler with semaphore&quot;&gt;&lt;/a&gt;Q6: design scheduler with semaphore&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;while(true)&amp;#10;  Wait(numberOfNewTask)&amp;#10;  Lock(taskTable)&amp;#10;  task = taskTable.findOne(&amp;#34;state=new&amp;#34;)&amp;#10;  task.state = &amp;#34;working&amp;#34;&amp;#10;  Release(taskTable)&amp;#10;&amp;#10;  page = Crawl(task.url)&amp;#10;&amp;#10;  if task.type == &amp;#34;list&amp;#34;&amp;#10;    lock(taskTable)&amp;#10;    For newTask in page:&amp;#10;      taskTable.Add(newTask)&amp;#10;      Signal(numberOfNewTask)&amp;#10;    task.state = &amp;#34;done&amp;#34;&amp;#10;    Release(taskTable)&amp;#10;  Else&amp;#10;    lock(pageTable)&amp;#10;    pageTable.Add(page)&amp;#10;    Release(pageTable)&amp;#10;    lock(taskTable)&amp;#10;    task.state = &amp;#34;done&amp;#34;&amp;#10;    Release(taskTable)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Wait(semaphore)&amp;#10;  Lock(semaphore)&amp;#10;  semaphore.val--&amp;#10;  if semaphore.val &amp;#60; 0&amp;#10;    semaphore.processWaitList.Add(this.process)&amp;#10;    Release(semaphore)&amp;#10;    Block(this.process)&amp;#10;  Else&amp;#10;    Release(semaphore)&amp;#10;&amp;#10;Signal(semaphore)&amp;#10;  Lock(semaphore)&amp;#10;  semaphore.val++&amp;#10;  if semaphore.val &amp;#60;= 0&amp;#10;    process = semaphore.processWaitList.Pop()&amp;#10;    Wakeup(process)&amp;#10;  Release(semaphore)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Q7-Design-fastest-consumer-and-producer&quot;&gt;&lt;a href=&quot;#Q7-Design-fastest-consumer-and-producer&quot; class=&quot;headerlink&quot; title=&quot;Q7: Design fastest consumer and producer&quot;&gt;&lt;/a&gt;Q7: Design fastest consumer and producer&lt;/h3&gt;&lt;p&gt;Fill in later.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;p&gt;How to write crawler code and how to improve it step by step.&lt;/p&gt;
+&lt;p&gt;Multi-thread concurrency design with mutex and semaphore.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Bittiger" scheme="http://victoriahong.com/tags/Bittiger/"/>
+    
+      <category term="Crawler" scheme="http://victoriahong.com/tags/Crawler/"/>
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+      <category term="concurrency" scheme="http://victoriahong.com/tags/concurrency/"/>
+    
+      <category term="硅谷之路" scheme="http://victoriahong.com/tags/%E7%A1%85%E8%B0%B7%E4%B9%8B%E8%B7%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithms Part I - Week 0 &amp; 1</title>
+    <link href="http://victoriahong.com/2016/04/Algorithms-Part-I-Week-0-1/"/>
+    <id>http://victoriahong.com/2016/04/Algorithms-Part-I-Week-0-1/</id>
+    <published>2016-04-22T00:45:34.000Z</published>
+    <updated>2016-04-22T06:25:53.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Union-Find-amp-Memory-Usage-for-Algorithm&quot;&gt;&lt;a href=&quot;#Union-Find-amp-Memory-Usage-for-Algorithm&quot; class=&quot;headerlink&quot; title=&quot;Union-Find &amp;amp; Memory Usage for Algorithm&quot;&gt;&lt;/a&gt;Union-Find &amp;amp; Memory Usage for Algorithm&lt;/h2&gt;&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;algorithm&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;initialize&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;union&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;find&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick-find&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;union时loop更新有共同祖先的顶点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick-union&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;union时只需要更新一个顶点的祖先&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;weighted QU&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lg N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lg N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;加一个size记录，小树总是连在大树上&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;M union-find operations on a set of N objects:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;algorithm&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;worst-case time&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick-find&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;MN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick-union&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;MN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;weighted QU&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N + M log N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;QU + path compression&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N + M log N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Weighted QU + path compression&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N + M log* N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Dynamic-Connectivity&quot;&gt;&lt;a href=&quot;#Dynamic-Connectivity&quot; class=&quot;headerlink&quot; title=&quot;Dynamic Connectivity&quot;&gt;&lt;/a&gt;Dynamic Connectivity&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Connected components&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Quick find / eager approach&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;data structure&lt;/p&gt;
+&lt;p&gt; int[] id = new int[]&lt;br&gt; p and q are connected iff they have the same id&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;find: check is p and q have the same id&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;union: merger components containing p and q&lt;/p&gt;
+&lt;p&gt; (id[i] == id[p] –&amp;gt; id[q])&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class QF&amp;#10;&amp;#123;&amp;#10;&amp;#9;private int[] id;&amp;#10;&amp;#10;&amp;#9;public QF(int N)&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;id = new int[N];&amp;#10;&amp;#9;&amp;#9;for (int i = 0; i &amp;#60; N; i++)&amp;#10;&amp;#9;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;&amp;#9;id[i] = i; // initialize, cost: N&amp;#10;&amp;#9;&amp;#9;&amp;#125;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public boolean connected(int p, int q)&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;return id[p] == id[q]; // cost: 1&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public void union(int p, int q) // too expensive, cost: N&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;int pid = id[p];&amp;#10;&amp;#9;&amp;#9;int qid = id[q];&amp;#10;&amp;#9;&amp;#9;for (int i = 0; i &amp;#60; id.length; i++)&amp;#10;&amp;#9;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;&amp;#9;if (id[i] == pid) id[i] = qid;&amp;#10;&amp;#9;&amp;#9;&amp;#125;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;quick-find is too slow for huge problem !&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;too flat so union is expensive !&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Quick union / lazy approach&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;data structure&lt;/p&gt;
+&lt;p&gt; int[] id = new int[]&lt;br&gt; id[i] stores the parent of i&lt;br&gt; root of i is id[id[id[…id[i]…]]]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;find: check if p and q have the same root –&amp;gt; in the same union&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;union: set the id of p’s root to the id of q’s root&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class QU&amp;#10;&amp;#123;&amp;#10;&amp;#9;private int[] id;&amp;#10;&amp;#10;&amp;#9;public QU(int N)&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;id = new int[N];&amp;#10;&amp;#9;&amp;#9;for (int i = 0; i &amp;#60; N; i++)&amp;#10;&amp;#9;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;&amp;#9;id[i] = i; // initialize, cost: N&amp;#10;&amp;#9;&amp;#9;&amp;#125;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public int root(int i)&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;while (i != id[i])&amp;#10;&amp;#9;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;&amp;#9;i = id[i]; // cost: depth of i&amp;#10;&amp;#9;&amp;#9;&amp;#125;&amp;#10;&amp;#9;&amp;#9;return i;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public boolean connected(int p, int q)&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;return root(p) == root(q); // cost: depth of p + depth of q&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public void union(int p, int q)&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;int i = root(p); // cost: depth of p&amp;#10;&amp;#9;&amp;#9;int j = root(q); // cost: depth of q&amp;#10;&amp;#9;&amp;#9;id[i] = j;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;too tall so find is expensive !&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Improve Quick-Union&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;weighting to avoid tall trees : put smaller tree lower&lt;/p&gt;
+&lt;p&gt; add a size array&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   public void union(int p, int q)&amp;#10;&amp;#123;&amp;#10;&amp;#9;int i = root(p); // cost: depth of p&amp;#10;&amp;#9;int j = root(q); // cost: depth of q&amp;#10;&amp;#9;if (i == j) return;&amp;#10;&amp;#9;if (size[i] &amp;#60; size[j])&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;id[i] = j;&amp;#10;&amp;#9;&amp;#9;size[j] += size[i];&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#9;else&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;id[j] = i;&amp;#10;&amp;#9;&amp;#9;size[i] += size[j];&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; union takes constant time, given roots. (log N)&lt;/p&gt;
+&lt;p&gt; depth of any node is at most log N.&lt;/p&gt;
+&lt;p&gt; find cost log N.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;path compression&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Two - pass: After computing root of p, set id of each examined node to point to that root.&lt;/p&gt;
+&lt;p&gt;One - pass: Make every other node in the path pointed to its &lt;strong&gt;grandparent&lt;/strong&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public int root(int i)&amp;#10;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;while (i != id[i])&amp;#10;&amp;#9;&amp;#9;&amp;#123;&amp;#10;&amp;#9;&amp;#9;&amp;#9;id[i] = id[id[i]];&amp;#10;&amp;#9;&amp;#9;&amp;#9;i = id[i]; // cost: depth of i&amp;#10;&amp;#9;&amp;#9;&amp;#125;&amp;#10;&amp;#9;&amp;#9;return i;&amp;#10;&amp;#9;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Memory-Usage&quot;&gt;&lt;a href=&quot;#Memory-Usage&quot; class=&quot;headerlink&quot; title=&quot;Memory Usage&quot;&gt;&lt;/a&gt;Memory Usage&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;type&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;bytes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;boolean&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;byte&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;char&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;int&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;float&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;long&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;double&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;type&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;bytes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;chat[]&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2N + 24&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;int[]&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;4N + 24&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;double&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;8N + 24&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;type&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;bytes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Object Overhead&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Reference&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;padding&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;8x&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Union-Find-amp-Memory-Usage-for-Algorithm&quot;&gt;&lt;a href=&quot;#Union-Find-amp-Memory-Usage-for-Algorithm&quot; class=&quot;headerlink&quot; title=&quot;Union-Find &amp;amp; Memory Usage for Algorithm&quot;&gt;&lt;/a&gt;Union-Find &amp;amp; Memory Usage for Algorithm&lt;/h2&gt;&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;algorithm&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;initialize&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;union&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;find&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick-find&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;union时loop更新有共同祖先的顶点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick-union&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;union时只需要更新一个顶点的祖先&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;weighted QU&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lg N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lg N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;加一个size记录，小树总是连在大树上&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;M union-find operations on a set of N objects:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;algorithm&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;worst-case time&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick-find&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;MN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick-union&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;MN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;weighted QU&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N + M log N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;QU + path compression&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N + M log N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Weighted QU + path compression&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N + M log* N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Algorithms" scheme="http://victoriahong.com/tags/Algorithms/"/>
+    
+      <category term="Memory" scheme="http://victoriahong.com/tags/Memory/"/>
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+      <category term="Union Find" scheme="http://victoriahong.com/tags/Union-Find/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker</title>
+    <link href="http://victoriahong.com/2016/04/Docker/"/>
+    <id>http://victoriahong.com/2016/04/Docker/</id>
+    <published>2016-04-21T19:38:04.000Z</published>
+    <updated>2016-04-22T05:41:00.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Basic-Concept&quot;&gt;&lt;a href=&quot;#Basic-Concept&quot; class=&quot;headerlink&quot; title=&quot;Basic Concept&quot;&gt;&lt;/a&gt;Basic Concept&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;is a platform for developing , shipping and running applications using container virtualization technology&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Traditional solution:&lt;/p&gt;
+  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;app --&amp;#62; OS --&amp;#62; physical sever&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  Problems: slow; cost; waste; scale; migrate; vendor lock in&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Hypervisor-based Virtualization&lt;/p&gt;
+  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;VM( app --&amp;#62; guest OS )&amp;#10;&amp;#10;VM( app --&amp;#62; guest OS ) --&amp;#62; Hypervisor --&amp;#62; host OS --&amp;#62; physical sever&amp;#10;&amp;#10;VM( app --&amp;#62; guest OS )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  Benefits: better resource pooling; scale; VMs in cloud&lt;/p&gt;
+&lt;p&gt;  Limitations: VMs need resources&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Container&lt;/p&gt;
+&lt;p&gt;  Container based virtualization uses the kernel on the host’s OS to run multiple &lt;strong&gt;guest instances&lt;/strong&gt;(container)&lt;/p&gt;
+  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;container( app )&amp;#10;&amp;#10;container( app ) --&amp;#62; Host OS( OS Kernel ) --&amp;#62; Physicals server&amp;#10;&amp;#10;container( app )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Container over VM: lightweight; less resource; portability&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Docker&lt;/p&gt;
+  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;container( app )&amp;#10;&amp;#10;container( app ) --&amp;#62; Docker Engine --&amp;#62; Linux OS( Linux Kernel ) --&amp;#62; Physicals server&amp;#10;&amp;#10;container( app )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  &lt;strong&gt;Namespace&lt;/strong&gt; is used to support isolated containers&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Docker Client and Daemon&lt;/p&gt;
+&lt;p&gt;  client –&amp;gt; Daemon(server)&lt;/p&gt;
+&lt;p&gt;  run on same host/diff hosts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Docker Container and Image&lt;/p&gt;
+&lt;p&gt;  image&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;read only template to create containers&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Docker hub or local registry&lt;/p&gt;
+&lt;p&gt;Container&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All resources needed to run the app&lt;/p&gt;
+&lt;p&gt;Registry &amp;amp; Repository&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Docker Hub&lt;/strong&gt; is a registry&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Registry contains several repos (repo for ubuntu, for redhat)&lt;/li&gt;
+&lt;li&gt;Repo contains several images&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Docker Orchestration&lt;/p&gt;
+&lt;p&gt;  Machine/Swarm/Compose&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Benefits: Separation; Fast deployment cycle; Portability; Scalability&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Operations&quot;&gt;&lt;a href=&quot;#Operations&quot; class=&quot;headerlink&quot; title=&quot;Operations&quot;&gt;&lt;/a&gt;Operations&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Show images&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker image&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Container ID&lt;/p&gt;
+&lt;p&gt;  long ID and short ID&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker ps&lt;/code&gt; list containers&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker ps -a&lt;/code&gt; list all containers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Running options&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Running in Detached Mode&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker run -d command&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Running a web app inside a container&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker run -d -P tomcat:7&lt;/code&gt; map the tomcat ports to the host port randomly(49153 ~ 65535)&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker run -d -p 8080:80 nginx:1.7&lt;/code&gt; map 80 on the container to 9090 on the host&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;attach stdin&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker run -i&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;pseudo-tty&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker run -t&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Commit&lt;br&gt;  &lt;code&gt;docker commit [options] [container ID] [repo: tag]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  refer to a container by ID or name&lt;/p&gt;
+&lt;p&gt;  repo name: username + / + appname&lt;/p&gt;
+&lt;p&gt;  default tag: latest&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Building-Image&quot;&gt;&lt;a href=&quot;#Building-Image&quot; class=&quot;headerlink&quot; title=&quot;Building Image&quot;&gt;&lt;/a&gt;Building Image&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Image Layers&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a layer is also just another image&lt;/li&gt;
+&lt;li&gt;layers are read only&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Writable Layer&lt;/p&gt;
+&lt;p&gt;  all changes are made to the writable layer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Dockerfile&lt;/p&gt;
+&lt;p&gt;  is a configuration file that contains instructions for building a Docker image&lt;/p&gt;
+&lt;p&gt;  instructions can be cached automatically&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;FROM&lt;/strong&gt; base image&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;FROM ubuntu:14.04&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;RUN&lt;/strong&gt; specify a command to execute&lt;/p&gt;
+&lt;p&gt;  each RUN is a new commit, so we can aggregate multiple RUN instructions&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;RUN apt-get update &amp;amp;&amp;amp; apt-get install vim&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;CMD&lt;/strong&gt; defines a default command to execute when a container is created&lt;/p&gt;
+&lt;p&gt;  can be specified once in a Dockerfile and can be overridden at runtime&lt;/p&gt;
+&lt;p&gt;  shell form: &lt;code&gt;CMD ping 127.0.0.1 -c 30&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  exec form: &lt;code&gt;CMD [&amp;quot;ping&amp;quot;, &amp;quot;127.0.0.1&amp;quot;, &amp;quot;-c&amp;quot;, &amp;quot;30&amp;quot;]&lt;/code&gt; can pass in parameters at runtime&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;ENTRYPOINT&lt;/strong&gt; can’t be overridden at runtime&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;ENTRYPOINT [&amp;quot;ping&amp;quot;]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;VOLUME&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;VOLUME /directory&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;VOLUME /www/website1.com /www/website2.com&lt;/code&gt; multiple volumes&lt;/p&gt;
+&lt;p&gt;  can’t map volumes to host directories&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;EXPOSE&lt;/strong&gt; configure which port a container will listen on at runtime&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;EXPOSE 80 443&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Docker Build&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker build [options] [path]&lt;/code&gt; path is build context(including all resource files)&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker build -t [repo:tag] [path]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Start and Stop Containers&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker ps -a&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker start &amp;lt;container ID or name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker stop &amp;lt;container ID or name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Getting terminal access&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker exec&lt;/code&gt; to start another process within a container&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker exec -it [container ID] /bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;ps -ef&lt;/code&gt; to see existing processes in this container&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Delete Container&lt;/p&gt;
+&lt;p&gt;   &lt;code&gt;docker stop&lt;/code&gt;&lt;br&gt;   &lt;code&gt;docker rm [container ID]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Delete local images&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker rmi [image ID]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker rmi [repo:tag]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Push image to docker hub&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker push [repo:tag]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Volumes&quot;&gt;&lt;a href=&quot;#Volumes&quot; class=&quot;headerlink&quot; title=&quot;Volumes&quot;&gt;&lt;/a&gt;Volumes&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;is a designated directory in a container, which is designed to persist data, independent of the container’s life cycle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;persist when a container is deleted&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Mount a Volume&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker run -i -t -v /data/src:/test/src nginx:1.7&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  execute a new container and map the /data/src  folder from the host into the /test/src folder in the container&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Networking-Basics&quot;&gt;&lt;a href=&quot;#Networking-Basics&quot; class=&quot;headerlink&quot; title=&quot;Networking Basics&quot;&gt;&lt;/a&gt;Networking Basics&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;EXPOSE&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Link Containers&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker run -d --name database postgres&lt;/code&gt; create the source container first&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;docker run -d -p --name website -- link database:db nginx&lt;/code&gt; create the recipient container&lt;/p&gt;
+&lt;p&gt;  db is alias for database&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Basic-Concept&quot;&gt;&lt;a href=&quot;#Basic-Concept&quot; class=&quot;headerlink&quot; title=&quot;Basic Concept&quot;&gt;&lt;/a&gt;Basic Concept&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;is a platform for
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Docker" scheme="http://victoriahong.com/tags/Docker/"/>
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+  </entry>
+  
+</feed>

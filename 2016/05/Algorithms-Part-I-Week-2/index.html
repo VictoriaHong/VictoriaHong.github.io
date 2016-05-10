@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Victoria&#39;s Blog">
+    <title>Algorithms Part I Week 2 - Victoria&#39;s Blog</title>
+    <meta name="author" content="Victoria Hong">
+    
+    
+        <link rel="icon" href="http://victoriahong.com/assets/images/favicon.png">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="Stacks and Queues &amp;amp; Elementary SortsOverview
+Modular programming style
+For stack, push pop
+Each operation cost constant time in the worst case
+Extra time and space to deal with the link
+
+
+For queu">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Algorithms Part I Week 2">
+<meta property="og:url" content="http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/index.html">
+<meta property="og:site_name" content="Victoria's Blog">
+<meta property="og:description" content="Stacks and Queues &amp;amp; Elementary SortsOverview
+Modular programming style
+For stack, push pop
+Each operation cost constant time in the worst case
+Extra time and space to deal with the link
+
+
+For queu">
+<meta property="og:updated_time" content="2016-05-07T06:38:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Algorithms Part I Week 2">
+<meta name="twitter:description" content="Stacks and Queues &amp;amp; Elementary SortsOverview
+Modular programming style
+For stack, push pop
+Each operation cost constant time in the worst case
+Extra time and space to deal with the link
+
+
+For queu">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://www.gravatar.com/avatar/62d0fa666fec0472476147ad2e6030cb?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-quwccsthbllipo6252snb2tfkddvrsp1eczkytpz3vmxpsb6nwodixemlkux.min.css" type="text/css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-76801514-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Victoria&#39;s Blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="/#about">
+        
+        
+            <img class="header-picture" src="http://www.gravatar.com/avatar/62d0fa666fec0472476147ad2e6030cb?s=90"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="http://www.gravatar.com/avatar/62d0fa666fec0472476147ad2e6030cb?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">Victoria Hong</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="/#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Resume</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/VictoriaHong" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://www.facebook.com/XinVictoriaHong" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-facebook"></i>
+                    <span class="sidebar-button-desc">Facebook</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://www.linkedin.com/in/xinvictoriahong" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">LinkedIn</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Algorithms Part I Week 2
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Fri May 06 2016 23:35:09 GMT-0700">
+	
+		    May 06, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Tech-Notes/">Tech Notes</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h2 id="Stacks-and-Queues-amp-Elementary-Sorts"><a href="#Stacks-and-Queues-amp-Elementary-Sorts" class="headerlink" title="Stacks and Queues &amp; Elementary Sorts"></a>Stacks and Queues &amp; Elementary Sorts</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul>
+<li>Modular programming style</li>
+<li>For stack, push pop<ul>
+<li>Each operation cost constant time in the worst case</li>
+<li>Extra time and space to deal with the link</li>
+</ul>
+</li>
+<li>For queue, enqueue dequeue<ul>
+<li>Each operation cost constant amortized time</li>
+<li>less wasted space</li>
+</ul>
+</li>
+<li>Generics</li>
+<li>Iterator</li>
+</ul>
+<a id="more"></a>
+<h3 id="Stacks"><a href="#Stacks" class="headerlink" title="Stacks"></a>Stacks</h3><p><strong>Linked-list implementation</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedStackOfStrings &#123;&#10;&#9;private Node first = null;&#10;&#10;&#9;private class Node &#123;&#10;&#9;&#9;String item;&#10;&#9;&#9;Node next;&#10;&#9;&#125;&#10;&#10;&#9;public boolean isEmpty()&#123;&#10;&#9;&#9;return first == null;&#10;&#9;&#125;&#10;&#10;&#9;public String pop()&#123;&#10;&#9;&#9;String item = first.item;&#10;&#9;&#9;first = first.next;&#10;&#9;&#9;return item;&#10;&#9;&#125;&#10;&#10;&#9;public void push(String item)&#123;&#10;&#9;&#9;Node oldFirst = first;&#10;&#9;&#9;first = new Node();&#10;&#9;&#9;first.item = item;&#10;&#9;&#9;first.next = oldFirst;&#10;&#9;&#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>Performance:</p>
+<ul>
+<li>Operations takes constant time</li>
+<li>40N bytes</li>
+</ul>
+<p><strong>Array implementation</strong></p>
+<p>s[N]</p>
+<p>push() –&gt; add new item at s[N]</p>
+<p>pop() –&gt; remove item from s[N-1]</p>
+<p>Defects:</p>
+<ul>
+<li>May cause stack overflow when N exceeds capacity</li>
+<li>Loitering problem (after pop, still keep a reference, can’t be GCed)</li>
+</ul>
+<p><strong>Resizing-array implementation</strong></p>
+<p>push() –&gt; double size of s[] when it is full</p>
+<p>pop() –&gt; halve size of s[] when it is one-quarter full</p>
+<p>Performance:</p>
+<ul>
+<li>operation</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">best</th>
+<th style="text-align:center">worst</th>
+<th style="text-align:center">aver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">construct</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">push</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">pop</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">size</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>8N when full; 32N when one-quarter full</li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><p><strong>Linked-list implementation</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedQueueOfStrings&#123;&#10;&#9;private Node first, last;&#10;&#10;&#9;private class Node &#123;&#10;&#9;&#9;String item;&#10;&#9;&#9;Node next;&#10;&#9;&#125;&#10;&#10;&#9;public boolean isEmpty()&#123;&#10;&#9;&#9;return first == null;&#10;&#9;&#125;&#10;&#10;&#9;public void enqueue(String item)&#123;&#10;&#9;&#9;Node oldLast = last;&#10;&#9;&#9;last = new Node();&#10;&#9;&#9;last.item = item;&#10;&#9;&#9;last.next = null;&#10;&#9;&#9;if (isEmpty()) first = last;&#10;&#9;&#9;else oldLast.next = last;&#10;&#9;&#125;&#10;&#10;&#9;public String dequeue()&#123;&#10;&#9;&#9;String item = first.item;&#10;&#9;&#9;first = first.next;&#10;&#9;&#9;if (isEmpty()) last = null;&#10;&#9;&#9;return item;&#10;&#9;&#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Generics"><a href="#Generics" class="headerlink" title="Generics"></a>Generics</h3><p>In a nutshell, generics enable types (classes and interfaces) to be parameters when defining classes, interfaces and methods.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class FixedCapacityStack(int capacity)&#123;&#10;&#9;s = (Item[]) new Object[capacity];&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>Java don’t allow create an array in generic type, so an ugly cast is needed here. Get a warning.</p>
+<p>Primitive type has a wrapper class. Autoboxing can cast btw a primitive type and its wrapper automatically behind the scenes.</p>
+<h3 id="Iterators"><a href="#Iterators" class="headerlink" title="Iterators"></a>Iterators</h3><p>Iterable is an interface which can return an iterator.</p>
+<p>Iterator is an interface which has methods: hasNext() and next().</p>
+<p>Foreach statement is equivalent to</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Iterator&#60;String&#62; i = stack.iterator();&#10;&#10;while(i.hasNext())&#123;&#10;&#9;String s = i.next();&#10;&#9;//do sth with s&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>When order doesn’t matter, we use <strong>Bag API</strong>. Bag implements iterable interface. Method: add(), size(), iterator().</p>
+<h3 id="Stack-and-queue-applications"><a href="#Stack-and-queue-applications" class="headerlink" title="Stack and queue applications"></a>Stack and queue applications</h3><p>List collection implements iterable interface. But it is too broad.</p>
+<p>Dijkstra’s <strong><a href="http://algs4.cs.princeton.edu/13stacks/Evaluate.java.html" target="_blank" rel="external">two-stack algorithm</a></strong> to evaluate n arithmetic expression. Value stack and Operator stack. Omit ‘(‘ but pop when ‘)’.</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Algorithms/">Algorithms</a> <a class="tag tag--primary tag--small t-link" href="/tags/Notes/">Notes</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/xinhong1/"  data-tooltip="Blog Update 1">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/GitCommandCheatsheet/" data-tooltip="Git Command Cheatsheet">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Victoria Hong. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/xinhong1/"  data-tooltip="Blog Update 1">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/GitCommandCheatsheet/" data-tooltip="Git Command Cheatsheet">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="http://www.gravatar.com/avatar/62d0fa666fec0472476147ad2e6030cb?s=110"/>
+        
+            <h4 id="about-card-name">Victoria Hong</h4>
+        
+            <h5 id="about-card-bio"><p>Master student at CMU<br> Foodie &amp; Programmer &amp; Fashionista<br> Looking for full-time position @Bay area</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Software Engineer</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Mountain View, CA
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/scrip-rjanlllosg30d03qrddpwrs6wqf4k3v0bbo68hiifuvthyhqfefx2htcagu0.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/';
+                 
+                    this.page.identifier = '2016/05/Algorithms-Part-I-Week-2/';
+                                  
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'victoria-matrix';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+
+</html>
