@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://victoriahong.com/"/>
-  <updated>2016-05-14T19:28:37.000Z</updated>
+  <updated>2016-05-17T05:16:27.000Z</updated>
   <id>http://victoriahong.com/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BuzzWord</title>
+    <link href="http://victoriahong.com/2016/05/BuzzWord/"/>
+    <id>http://victoriahong.com/2016/05/BuzzWord/</id>
+    <published>2016-05-17T05:07:50.000Z</published>
+    <updated>2016-05-17T05:16:27.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Tech-Words-You-Should-Know&quot;&gt;&lt;a href=&quot;#Tech-Words-You-Should-Know&quot; class=&quot;headerlink&quot; title=&quot;Tech Words You Should Know&quot;&gt;&lt;/a&gt;Tech Words You Should Know&lt;/h2&gt;&lt;p&gt;The goal is to remember what it is and why use it.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Storm-amp-Heron&quot;&gt;&lt;a href=&quot;#Storm-amp-Heron&quot; class=&quot;headerlink&quot; title=&quot;Storm &amp;amp; Heron&quot;&gt;&lt;/a&gt;Storm &amp;amp; Heron&lt;/h3&gt;&lt;p&gt;Twitter real-time big data processing.&lt;/p&gt;
+&lt;p&gt;Storm supports real-time processing at milliseconds level.&lt;/p&gt;
+&lt;p&gt;Heron provide better functionalities in workload deduction for ZooKeeper, resource isolation, configuration optimization, flow control.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Tech-Words-You-Should-Know&quot;&gt;&lt;a href=&quot;#Tech-Words-You-Should-Know&quot; class=&quot;headerlink&quot; title=&quot;Tech Words You Should Know&quot;&gt;&lt;/a&gt;Tech Words You Should Know&lt;/h2&gt;&lt;p&gt;The goal is to remember what it is and why use it.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Bittiger" scheme="http://victoriahong.com/tags/Bittiger/"/>
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+  </entry>
   
   <entry>
     <title>Bittiger 硅谷之路 11</title>
