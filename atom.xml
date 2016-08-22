@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://victoriahong.com/"/>
-  <updated>2016-05-17T05:16:27.000Z</updated>
+  <updated>2016-08-18T07:03:48.000Z</updated>
   <id>http://victoriahong.com/</id>
   
   <author>
@@ -14,6 +14,906 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Algorithms 笔记</title>
+    <link href="http://victoriahong.com/2016/08/AlgorithmsNotes/"/>
+    <id>http://victoriahong.com/2016/08/AlgorithmsNotes/</id>
+    <published>2016-08-08T23:39:00.000Z</published>
+    <updated>2016-08-18T07:03:48.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Java basics&lt;/li&gt;
+&lt;li&gt;Complexity&lt;/li&gt;
+&lt;li&gt;Elementary sorts&lt;/li&gt;
+&lt;li&gt;Shuffle&lt;/li&gt;
+&lt;li&gt;Merge sort&lt;/li&gt;
+&lt;li&gt;Quick sort&lt;/li&gt;
+&lt;li&gt;Priority queue&lt;/li&gt;
+&lt;li&gt;Heap sort&lt;/li&gt;
+&lt;li&gt;Symbol tables&lt;/li&gt;
+&lt;li&gt;Binary tree&lt;/li&gt;
+&lt;li&gt;Binary search tree&lt;/li&gt;
+&lt;li&gt;Balanced search tree&lt;/li&gt;
+&lt;li&gt;Hash Table&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sort:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;#&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;inplace?&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;stable?&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;worst&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;avr&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;best&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;extra space&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;remarks&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;selection&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;insertion&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/4&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;depends on order of items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;shell&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;?&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;?&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;merge&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.39NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;probabilistic guarantee&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;3-way quick&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.39NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;probabilistic guarantee also depends on order of items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;heap&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Search:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;underlying data structure&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;implementation&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;pros&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;cons&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;guarantee search&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;guarantee insert&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;avr search hit&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;avr insert&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;linked list(sequential search)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;SequentialSearchST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;best for tiny STs&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;slow for large STs&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;ordered array(binary search)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;BinarySearchST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;optimal search and space, order-based ops&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;slow insert&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N/2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;binary search tree&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;BST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;easy to implement, order-based ops&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;no guarantee space for links&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.39lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.39lgN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;balanced BST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;RedBlackBST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;optimal search and insert, order-based ops&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;space for links&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;hash table&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;SeparateChainingHashST, linearProbingHashST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;fast search/insert for common types of data&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;need hash for each type, no order-based ops, space for links/empty&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;SeparateChainingHashST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;array of lists&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N/(2M)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N/M&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;linearProbingHashST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;parallel arrays&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;clgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;clgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;1.5&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;2.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;Java-basics&quot;&gt;&lt;a href=&quot;#Java-basics&quot; class=&quot;headerlink&quot; title=&quot;Java basics&quot;&gt;&lt;/a&gt;Java basics&lt;/h2&gt;&lt;h3 id=&quot;描述代码的名词&quot;&gt;&lt;a href=&quot;#描述代码的名词&quot; class=&quot;headerlink&quot; title=&quot;描述代码的名词&quot;&gt;&lt;/a&gt;描述代码的名词&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;内容&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;名称&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;import java.util.Arrays;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;import a java library&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;class Foo&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;code must in the file Foo.java&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;public static int rank(int key)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;static method; return type; parameter variables&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;while(i &amp;lt; 10){i++;}&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;initializing declaration; loop statement; expression; return statement&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;public static void main(String[] args)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;system call&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;if (a &amp;gt; 10) { rank(a);}&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;condition statement; local method&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;integer, float, double, char, boolean&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;primitive data type&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;a, a_b, ab$&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;identifier, the first of which is not a digit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;+, -, *, /, %&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;operator; remainder&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;3 + 5 * 2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;* has higher precedence than +; parentheses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;(int)3.7&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;type conversion; cast&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;i++; i/=2;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;implicit assignment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The key property of these primitive operations is that an operation involving values of a given type has a value of that type.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;e.g. &lt;code&gt;5/3&lt;/code&gt; is 1, &lt;code&gt;5.0/3.0&lt;/code&gt; is 1.66666667, but &lt;code&gt;5/3&lt;/code&gt; exact value is 5/3.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;type&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;size&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;int&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;32-bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;long&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;64-bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;short&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;16-bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;char&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;16-bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;byte&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;8-bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;float&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;32-bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;double&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;64-bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Java program is composed by declarations, assignments, conditionals, loops, calls and returns.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;Declare-create-and-initialize-array&quot;&gt;&lt;a href=&quot;#Declare-create-and-initialize-array&quot; class=&quot;headerlink&quot; title=&quot;Declare, create and initialize array&quot;&gt;&lt;/a&gt;Declare, create and initialize array&lt;/h3&gt;&lt;p&gt;&lt;code&gt;int[] a  = new int[N];&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;new a Generic array:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Item[] a = (Item[]) new Object[N];&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;default initial value:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;numeric type: 0&lt;/li&gt;
+&lt;li&gt;boolean: false&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Array name refers to the whole array. Copy an array, should copy all entries to a new array.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;reverse an array:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;int N = a.length;&amp;#10;for(int i=0; i &amp;#60; N/2; i++)&amp;#123;&amp;#10;  double temp = a[i];&amp;#10;  a[i] = a[N-1-i];&amp;#10;  a[N-1-i] = temp;  &amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;square matrix multiplication:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;int N = a.length;&amp;#10;double[][] c = new double[N][N];&amp;#10;for (int i = 0; i &amp;#60; N; i++)&amp;#123;&amp;#10;  for (int j = 0; j &amp;#60; N; j++)&amp;#123;&amp;#10;    for (int k = 0; k &amp;#60; N; k++)&amp;#123;&amp;#10;      c[i][j] += a[i][k] * b[k][j];&amp;#10;    &amp;#125;&amp;#10;  &amp;#125;  &amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Resize an array:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;private void resize(int max)&amp;#123;&amp;#10;  Item[] temp = (Item[]) new Object[max];&amp;#10;  int N = a.length;&amp;#10;  for (int i = 0; i &amp;#60; N; i++) &amp;#123;&amp;#10;    temp[i] = a[i];&amp;#10;  &amp;#125;&amp;#10;  a = temp;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;When push, check &lt;code&gt;if N == a.length&lt;/code&gt;, resize(2 * a.length), push;&lt;/p&gt;
+&lt;p&gt;When pop, pop, check &lt;code&gt;if N == a.length / 4 &amp;amp;&amp;amp; N &amp;gt; 0&lt;/code&gt;, resize(a.length / 2);&lt;/p&gt;
+&lt;p&gt;BUT popped items are &lt;strong&gt;loitering&lt;/strong&gt; in the array. Set &lt;code&gt;a[N] = null;&lt;/code&gt; after getting value of a[–N] for G.&lt;/p&gt;
+&lt;h3 id=&quot;Binary-Search&quot;&gt;&lt;a href=&quot;#Binary-Search&quot; class=&quot;headerlink&quot; title=&quot;Binary Search&quot;&gt;&lt;/a&gt;Binary Search&lt;/h3&gt;&lt;p&gt;while loop:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static int binarySearch(int key, int[] a)&amp;#123;&amp;#10;  int low = 0;&amp;#10;  int high = a.length - 1;&amp;#10;  int mid = low + (high - low)/2;&amp;#10;  while(low &amp;#60;= high)&amp;#123;&amp;#10;    if(key &amp;#60; a[mid])&amp;#123;&amp;#10;      high = mid -1;&amp;#10;    &amp;#125;&amp;#10;    else if(key &amp;#62; a[mid])&amp;#123;&amp;#10;      low = mid + 1;&amp;#10;    &amp;#125;&amp;#10;    else&amp;#123;&amp;#10;      return mid;&amp;#10;    &amp;#125;&amp;#10;  &amp;#125;&amp;#10;  return -1;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;recursive implementation:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static int rank(int key, int[] a, int low, int high)&amp;#123;&amp;#10;  if(low &amp;#62; high) return -1;&amp;#10;  int mid = low + (high - low)/2;&amp;#10;  if(key &amp;#60; a[mid]) return rank(key, a, low, mid - 1);&amp;#10;  else if(key &amp;#62; a[mid]) return rank(key, a, mid + 1, high);&amp;#10;  else return mid;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Whitelisting&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Static-method&quot;&gt;&lt;a href=&quot;#Static-method&quot; class=&quot;headerlink&quot; title=&quot;Static method&quot;&gt;&lt;/a&gt;Static method&lt;/h3&gt;&lt;p&gt;square root:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static double sqrt(double c)&amp;#123;&amp;#10;  if (c &amp;#60; 0) return Double.NaN;&amp;#10;  double err = 1e-15;&amp;#10;  double t = c;&amp;#10;  while (Math.abs(t - c/t) &amp;#62; err * t) &amp;#123;&amp;#10;    t = (c/t + t)/2.0;&amp;#10;  &amp;#125;&amp;#10;  return t;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerlink&quot; title=&quot;String&quot;&gt;&lt;/a&gt;String&lt;/h3&gt;&lt;p&gt;String is not a primitive type.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;concatenation&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;conversion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;+&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Integer.parseInt(s), Integer.toString(i)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;Generics&quot;&gt;&lt;a href=&quot;#Generics&quot; class=&quot;headerlink&quot; title=&quot;Generics&quot;&gt;&lt;/a&gt;Generics&lt;/h3&gt;&lt;p&gt;&lt;code&gt;Stack&amp;lt;Item&amp;gt;&lt;/code&gt;, Item can be any data type.&lt;/p&gt;
+&lt;p&gt;Boolean, Byte, Character, Double, Float, Integer, Long, Short are wrapper types&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Auto-boxing&lt;/strong&gt; &lt;code&gt;stack.push(17)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Auto-unboxing&lt;/strong&gt; &lt;code&gt;int i = stack.pop()&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Bags&quot;&gt;&lt;a href=&quot;#Bags&quot; class=&quot;headerlink&quot; title=&quot;Bags&quot;&gt;&lt;/a&gt;Bags&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;A bag is a collection where remove items is not supported - its purpose is to provide clients ability to collect items and then to iterate through the collected items.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;the order is immaterial to user&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;foreach&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Order-of-growth-hypotheses&quot;&gt;&lt;a href=&quot;#Order-of-growth-hypotheses&quot; class=&quot;headerlink&quot; title=&quot;Order-of-growth hypotheses&quot;&gt;&lt;/a&gt;Order-of-growth hypotheses&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;description&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Order-of-growth&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;constant&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;statement&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;logarithmic&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;logN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;binary search&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;linear&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;loop&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;linearithmic&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;merge sort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quadratic&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N*N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;double loop&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;cubic&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;em&gt;N&lt;/em&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;triple loop&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;exponential&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2^N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;exhaustive search&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;Q-amp-A&quot;&gt;&lt;a href=&quot;#Q-amp-A&quot; class=&quot;headerlink&quot; title=&quot;Q&amp;amp;A&quot;&gt;&lt;/a&gt;Q&amp;amp;A&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;1/0 will cause runtime exception because value is undefined; 1.0/0.0 has the value infinity.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;a/b rounds toward 0; a%b = (a/b) * b + a%b eg: -14/3 = 14/-3 = -4, -14%3 = -2, 14%-3 = 2&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Array is iterable even though it doesn’t implement Iterable interface; String isn’t.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Elementary-sorts&quot;&gt;&lt;a href=&quot;#Elementary-sorts&quot; class=&quot;headerlink&quot; title=&quot;Elementary sorts&quot;&gt;&lt;/a&gt;Elementary sorts&lt;/h2&gt;&lt;h3 id=&quot;sorting-cost-model&quot;&gt;&lt;a href=&quot;#sorting-cost-model&quot; class=&quot;headerlink&quot; title=&quot;sorting cost model&quot;&gt;&lt;/a&gt;sorting cost model&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;running time&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;basic operations (compares, exchanges)&lt;/li&gt;
+&lt;li&gt;&lt;h1 id=&quot;of-times-array-accessed-for-read-and-Write&quot;&gt;&lt;a href=&quot;#of-times-array-accessed-for-read-and-Write&quot; class=&quot;headerlink&quot; title=&quot;of times array accessed for read and Write&quot;&gt;&lt;/a&gt;of times array accessed for read and Write&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;extra Memory&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;in place (including small function call stack, variables)&lt;/li&gt;
+&lt;li&gt;hold another copy of the array&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Data should be comparable:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class Date implement Comparable&amp;#60;Date&amp;#62; &amp;#123;&amp;#10;  public int compareTo(Date that)&amp;#123;&amp;#10;    if (this.year &amp;#60; that.year) return -1;&amp;#10;    else if (this.year &amp;#62; that.year) return +1;&amp;#10;    else return 0;&amp;#10;  &amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Or has a inner comparator class: // more than one compare standards&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class Date &amp;#123;&amp;#10;  public static final Comparator&amp;#60;Date&amp;#62; BY_YEAR = new ByYear(); // one comparator for the class&amp;#10;&amp;#10;  private static class ByYear implement Comparator&amp;#60;Date&amp;#62;&amp;#123;&amp;#10;    public int compare(Date a, Date b) &amp;#123;&amp;#10;      return a.year - b.year;&amp;#10;    &amp;#125;&amp;#10;  &amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Selection-sort&quot;&gt;&lt;a href=&quot;#Selection-sort&quot; class=&quot;headerlink&quot; title=&quot;Selection sort&quot;&gt;&lt;/a&gt;Selection sort&lt;/h3&gt;&lt;p&gt;Repeatedly select the smallest remaining item and exchange it with the first one of them.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;compares&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;exchanges&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.5 * N^2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;running time insensitive to input&lt;/li&gt;
+&lt;li&gt;data movement is minimal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static void selectionSort(Comparable[] a) &amp;#123;&amp;#10;  int N = a.length;&amp;#10;  for (int i = 0; i &amp;#60; N; i++) &amp;#123;&amp;#10;    int min = i;&amp;#10;    for (int j = i + 1; j &amp;#60; N; j++) &amp;#123;&amp;#10;      if (less(a[j], a[min])) min = j;&amp;#10;    &amp;#125;&amp;#10;    exchange(a, i, min);&amp;#10;  &amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Insertion-sort&quot;&gt;&lt;a href=&quot;#Insertion-sort&quot; class=&quot;headerlink&quot; title=&quot;Insertion sort&quot;&gt;&lt;/a&gt;Insertion sort&lt;/h3&gt;&lt;p&gt;Insert current into proper place among those already sorted items.&lt;/p&gt;
+&lt;p&gt;Before that, we should making place by moving larger items one position to right.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;compares&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;exchanges&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.25 * N^2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.25 * N^2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.5 * N^2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.5 * N^2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N - 1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;works well for nonrandom array, especially for partially sorted array&lt;/li&gt;
+&lt;li&gt;fine for tiny array (N &amp;lt; 15)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public void insertionSort(Comparable[] a)&amp;#123;&amp;#10;  int N = a.length;&amp;#10;  for (int i = 1; i &amp;#60; N; i++) &amp;#123;&amp;#10;    for (int j = i; j &amp;#62; 0; j--) &amp;#123;&amp;#10;      if (less(a[j] &amp;#60; a[j - 1])) exchange(a, j, j - 1);&amp;#10;    &amp;#125;&amp;#10;  &amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Shell-sort&quot;&gt;&lt;a href=&quot;#Shell-sort&quot; class=&quot;headerlink&quot; title=&quot;Shell sort&quot;&gt;&lt;/a&gt;Shell sort&lt;/h3&gt;&lt;p&gt;h-sort array several times&lt;/p&gt;
+&lt;h3 id=&quot;Merge-sort&quot;&gt;&lt;a href=&quot;#Merge-sort&quot; class=&quot;headerlink&quot; title=&quot;Merge sort&quot;&gt;&lt;/a&gt;Merge sort&lt;/h3&gt;&lt;p&gt;merging: combining 2 ordered array to make one larger ordered array.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;time&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;space&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N for auxiliary array&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static void merge(Comparable[] a, int lo, int mid, int hi) &amp;#123;&amp;#10;  int i = lo;&amp;#10;  int j = mid + 1;&amp;#10;  // int N = a.length;&amp;#10;  // Comparable[] aux = new Comparable[N];&amp;#10;  for (int k = lo; k &amp;#60; hi; k++) &amp;#123;&amp;#10;    aux[k] = a[k]; // copy a&amp;#10;  &amp;#125;&amp;#10;&amp;#10;  for (int k = lo; k &amp;#60; hi; k++) &amp;#123;&amp;#10;    if (i &amp;#62; mid) a[k] = aux[j++]; // left half exhausted&amp;#10;    else if (j &amp;#62; hi) a[k] = aux[i++];&amp;#10;    else if (less(aux[j], aux[i])) a[k] = aux[j++];&amp;#10;    else a[k] = aux[i++];&amp;#10;  &amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;merge-sort: to sort an array, divide it into two halves, sort the two halves recursively, and then merge the results.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;top-down: divide &amp;amp; conquer&lt;/p&gt;
+&lt;p&gt;|compares|accesses|&lt;br&gt;|:–:|:—:|&lt;br&gt;|NlgN|6NlogN|&lt;br&gt;|N|–|&lt;/p&gt;
+&lt;p&gt;equal value array(with test to avoid merge) cost only linear time.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class Merge &amp;#123;&amp;#10;  public static Comparable[] aux;&amp;#10;&amp;#10;  public static void sort(Comparable[] a) &amp;#123;&amp;#10;    int N = a.length;&amp;#10;    aux = new Comparable[N];&amp;#10;    sort(a, 0, N - 1);&amp;#10;  &amp;#125;&amp;#10;&amp;#10;  public static void sort(Comparable[] a, lo, hi) &amp;#123;&amp;#10;    if(lo &amp;#62;= high) return;&amp;#10;    int mid = lo + (hi - lo)/2;&amp;#10;    sort(a, lo, mid);&amp;#10;    sort(a, mid+1, hi);&amp;#10;    merge(a, lo, mid, hi);&amp;#10;  &amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;improvement for partially ordered array:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add insertion sort when size of subarray is less than 5&lt;/li&gt;
+&lt;li&gt;add condition when a[mid] &amp;lt;= a[mid + 1], return without merge&lt;/li&gt;
+&lt;li&gt;switch the role of aux and a in each recursive call to save time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;bottom-up: without recursion&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class MergeBU &amp;#123;&amp;#10;  private static Comparable[] aux;&amp;#10;&amp;#10;  public static void sort(Comparable[] a) &amp;#123;&amp;#10;    int N = a.length;&amp;#10;    aux = new Comparable[N];&amp;#10;    for (int sz = 1; sz &amp;#60; N; sz = sz + sz) &amp;#123;&amp;#10;      for (int lo = 0; lo &amp;#60; N - sz; lo += sz + sz) &amp;#123;&amp;#10;        merge(a, lo, lo + sz - 1, Math.min(lo+sz+sz, N-1));&amp;#10;      &amp;#125;&amp;#10;    &amp;#125;&amp;#10;  &amp;#125;&amp;#10;&amp;#125;&amp;#10;```  &amp;#10;&amp;#10;### Shuffle&amp;#10;&amp;#10;uniformly random permutation in linear time&amp;#10;&amp;#10;**Knuth shuffle**&amp;#10;&amp;#10;increment i, generate random [0, i], swap&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;public static void Shuffle(Object[] a){&lt;br&gt;  int N = a.length;&lt;br&gt;  for (int i = 0; i &amp;lt; N; i++) {&lt;br&gt;    int r = (int) Math.random(i+1); // [0, i]&lt;br&gt;    exchange(a, i, r);&lt;br&gt;  }&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;### Quick sort&amp;#10;&amp;#10;complementary to merge sort&amp;#10;&amp;#10;- rearrange subarray and the whole array is ordered&amp;#10;- do recursive calls after working on the whole array&amp;#10;- position of partition depends on the contents of the array&amp;#10;&amp;#10;characteristics:&amp;#10;&amp;#10;- partition in place&amp;#10;- shuffle: partitions are unbalanced makes MS extremely inefficient. situation like: first partition item is the smallest item, second one is the neat smallest item, leading to an excessive number of partitions of large subarrays.&amp;#10;- quicker than others because of less data movement.&amp;#10;&amp;#10;|compares|accesses|&amp;#10;|:--:|:---:|&amp;#10;|1.39 * NlgN|--|&amp;#10;|0.5 * N^2|--|&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;public class Quick {&lt;br&gt;  public static void sort(Comparable[] a) {&lt;br&gt;    shuffle(a);&lt;br&gt;    sort(a, 0, a.length - 1);&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public static void sort(Comparable[] a, int lo, int hi) {&lt;br&gt;    if (hi &amp;lt;= lo) return;&lt;br&gt;    int j = partition(a, lo, hi);&lt;br&gt;    sort(a, lo, j - 1);&lt;br&gt;    sort(a, j + 1, hi);&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public static int partition(Comparable[] a, int lo, int hi) {&lt;br&gt;    int i = lo;&lt;br&gt;    int j = hi + 1;&lt;br&gt;    Comparable v = a[lo];&lt;br&gt;    while(true) {&lt;br&gt;      while(less(a[++i], v)) {&lt;br&gt;        if (i == hi) break; // 交换之后还要能继续往后走，所以最远会走到hi,针对分隔值是数列最大值情况&lt;br&gt;      }&lt;br&gt;      while(less(v, a[–j])) {&lt;br&gt;        // redundant here, since v is a[lo], v won’t less than itself, when j == lo, while stop&lt;br&gt;        if (j == lo) break; // 交换之后还要能继续往前走，所以最远会走到lo,针对分隔值是数列最小值情况&lt;br&gt;      }&lt;br&gt;      exchange(a, i, j);&lt;br&gt;    }&lt;br&gt;    exchange(a, lo, j);&lt;br&gt;    return j;&lt;br&gt;  }&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;Improvement:&amp;#10;&amp;#10;- add insertion sort for tiny subarray&amp;#10;- median of 3 partition&amp;#10;- 3-way partitioning: cost liner time for array has a constant number of distinct key values&amp;#10;&amp;#10;  [  &amp;#60;v  ] [  =v  ] [unsorted] [  &amp;#62;v  ]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  public static void sort(Comparable[] a, int lo, int hi) {&lt;br&gt;    if (hi &amp;lt;= lo) return;&lt;br&gt;    int lt = lo, i = lo + 1, gt = hi;&lt;br&gt;    Comparable v = a[lo];&lt;br&gt;    while(i&amp;lt;=gt){ // i is iteration for unsorted part&lt;br&gt;      int cmp = a[i].compareTo(v);&lt;br&gt;      if(cmp &amp;lt; 0) exchange(a, lt++, i++); // lt is the beginning of =v&lt;br&gt;      else if(cmp &amp;gt; 0) exchange(a, gt–, i); //gt is the end of =v&lt;br&gt;      else i++;&lt;br&gt;    }&lt;br&gt;    sort(a, lo, lt - 1);&lt;br&gt;    sort(a, gt + 1, hi);&lt;br&gt;  }&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;### quick-selection for Kth largest problem&amp;#10;&amp;#10;|time|space|&amp;#10;|:--:|:---:|&amp;#10;|avr N|--|&amp;#10;|0.5 * N^2|--|&amp;#10;&amp;#10;[quick-sort space complexity is O(lgN)](https://www.wikiwand.com/en/Quicksort#/Space_complexity)&amp;#10;&amp;#10;&amp;#62; After partitioning, the partition with the fewest elements is (recursively) sorted first, requiring at most O(log n) space. Then the other partition is sorted using tail recursion or iteration, which doesn&amp;#39;t add to the call stack. This idea, as discussed above, was described by R. Sedgewick, and keeps the stack depth bounded by O(log n).&amp;#10;&amp;#10;[tail recursion](http://www.ruanyifeng.com/blog/2015/04/tail-call.html)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;public class QS {&lt;br&gt;  public static int select(Comparable[] a, int k) {&lt;br&gt;    shuffle(a);&lt;br&gt;    int lo = 0, hi = a.length - 1;&lt;br&gt;    while(lo &amp;lt;= hi){&lt;br&gt;      int j = partition(a, lo, hi); // find jth&lt;br&gt;      if(j &amp;gt; k) hi = j - 1; // kth is in left half&lt;br&gt;      else if(j &amp;lt; k) lo = j + 1; // kth is in right half&lt;br&gt;      else return a[k];&lt;br&gt;    }&lt;br&gt;    return a[k]; // a is sorted&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public static int partition(Comparable[] a, int lo, int hi) {&lt;br&gt;    int i = lo;&lt;br&gt;    int j = hi + 1;&lt;br&gt;    Comparable v = a[lo];&lt;br&gt;    while(true) {&lt;br&gt;      while(less(a[++i], v)) {&lt;br&gt;        if (i == hi) break; // 交换之后还要能继续往后走，所以最远会走到hi,针对分隔值是数列最大值情况&lt;br&gt;      }&lt;br&gt;      while(less(v, a[–j])) {&lt;br&gt;        // redundant here, since v is a[lo], v won’t less than itself, when j == lo, while stop&lt;br&gt;        if (j == lo) break; // 交换之后还要能继续往前走，所以最远会走到lo,针对分隔值是数列最小值情况&lt;br&gt;      }&lt;br&gt;      if (i &amp;gt;= j) break;&lt;br&gt;      exchange(a, i, j);&lt;br&gt;    }&lt;br&gt;    exchange(a, lo, j);&lt;br&gt;    return j;&lt;br&gt;  }&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;### System sort&amp;#10;&amp;#10;`java.util.Arrays` quick sort for primitive types, merge sort for objects, considering space is not that important when using object.&amp;#10;&amp;#10;### Priority queue&amp;#10;&amp;#10;need 2 operations: remove the max/min, insert&amp;#10;&amp;#10;context: a stream of N numbers, find the top 5 largest, with space limit&amp;#10;&amp;#10;unordered array implementation:&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;public class UnorderedMaxPQ&lt;key extends=&quot;&quot; comparable&lt;key=&quot;&quot;&gt;&amp;gt; {&lt;br&gt;  private Key[] pq;&lt;br&gt;  private int N;&lt;/key&gt;&lt;/p&gt;
+&lt;p&gt;  public UnorderedMaxPQ(int capacity) {&lt;br&gt;    pq = (Key[]) new Comparable[capacity];&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public void isEmpty() {&lt;br&gt;    return N == 0;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public void insert(Key x) {&lt;br&gt;    pq[N++] = x;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Key delMax() {&lt;br&gt;    int max = 0;&lt;br&gt;    for(int i = 0; i &amp;lt; N; i++){&lt;br&gt;      if(less(max, i)) max = i;&lt;br&gt;    }&lt;br&gt;    exchange(max, N - 1);&lt;br&gt;    return pq[–N];&lt;br&gt;  }&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;ordered array: insert to right place like insertion sort, the max one always at the end of the array.&amp;#10;&amp;#10;|data structure|insert|remove|&amp;#10;|:------------:|:----:|:----:|&amp;#10;|unordered(lazy)|1|N|&amp;#10;|ordered(eager)|N|1|&amp;#10;|heap|logN|logN|&amp;#10;&amp;#10;&amp;#10;Recap: For stack and queue, best case takes constant time.&amp;#10;&amp;#10;### Binary Heap&amp;#10;&amp;#10;- Largest key is a[1], which is root of binary tree.&amp;#10;&amp;#10;- Can use array indices to move through tree.&amp;#10;&amp;#10;  - Parent at k is at k/2;&amp;#10;  - Child at k is at 2k and 2k+1;&amp;#10;&amp;#10;- Peter promotion: if child is larger than parent, exchange child and its parent until to root.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  private void swim(int k){&lt;br&gt;    while(k &amp;gt; 1 &amp;amp;&amp;amp; pq[k] &amp;gt; pq[k/2]){&lt;br&gt;      exchange(k, k/2);&lt;br&gt;      k = k/2;&lt;br&gt;    }&lt;br&gt;  }&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;- Insertion&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  private void insert(Key k){&lt;br&gt;    pq[++N] = k;&lt;br&gt;    swim(N);&lt;br&gt;  }&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;- Power struggle: if parent is smaller than one or both of its child, exchange parent with its largest child until to leaf.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  private void sink(int k){&lt;br&gt;    while(2 &lt;em&gt; k &amp;lt;= N){&lt;br&gt;      int j = 2 &lt;/em&gt; k;&lt;br&gt;      if(j &amp;lt; N &amp;amp;&amp;amp; less(j, j+1)) j++;&lt;br&gt;      if(!less(k, j)) break;&lt;br&gt;      exchange(k, j);&lt;br&gt;      k = j;&lt;br&gt;    }&lt;br&gt;  }&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- delMax: exchange root with node at last, then sink it.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  public Key delMax(){&lt;br&gt;    Key max = pq[1];&lt;br&gt;    exchange(N–, 1);&lt;br&gt;    sink(1);&lt;br&gt;    pq[N+1] = null;&lt;br&gt;    return max;&lt;br&gt;  }&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;### Heap sort&amp;#10;&amp;#10;**Inplace + NlogN worst-case**&amp;#10;&amp;#10;BUT!!!&amp;#10;&amp;#10;- Inner loops longer than quick sort&amp;#10;- Make poor use of cache memory. References to node are not continuous.&amp;#10;- Not stable&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;public static void sort(Comparable[] a){&lt;br&gt;  int N = a.length;&lt;br&gt;  // construct the heap&lt;br&gt;  for (int k = N/2; k &amp;gt;= 1; k–)&lt;br&gt;    sink(a, k, N);&lt;br&gt;  // repeatedly remove the largest value&lt;br&gt;  while(N &amp;gt; 1) {&lt;br&gt;    exchange(a, 1, N–);&lt;br&gt;    sink(a, 1, N);&lt;br&gt;  }&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;### Symbol Tables&amp;#10;&amp;#10; - sequential search in an unordered linked list&amp;#10;&amp;#10; random search hit = N/2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  public class SequentialSearchST&lt;key, value=&quot;&quot;&gt;{&lt;br&gt;    private Node first;&lt;/key,&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;private class Node {
+  Key key;
+  Value val;
+  Node next;
+
+  public Node(Key key, Value val, Node next) {
+    this.key = key;
+    this.val = val;
+    this.next = next;
+  }
+}
+
+public Value get(Key key) {
+  Node x = first;
+  while (x != null) {
+    if (key.equals(x.key)) return x.val;
+    x = x.next;
+  }
+  return null;
+}
+
+public void put(Key key, Value val) {
+  Node x = first;
+  while (x != null) {
+    if (key.equals(x.key)) {
+      x.val = val;
+      return;
+    }
+    x = x.next;
+  }
+  first = new Node(key, val, first);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  }&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;- binary search in an ordered array&amp;#10;&amp;#10;  core function is `rank(Key key)`: number of keys less than key&amp;#10;&amp;#10;  Note: rank loop always terminates with the value of `lo` precisely equals to the number of keys in the table that are smaller than key.&amp;#10;&amp;#10;  |search cost| insert |&amp;#10;  |:---------:|:------:|&amp;#10;  |lgN|avr N|&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  public class BinarySearchST&lt;key key,=&quot;&quot; value=&quot;&quot; val=&quot;&quot;&gt; {&lt;br&gt;    private Key[] keys;&lt;br&gt;    private Value[] vals;&lt;br&gt;    private int N;&lt;/key&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public BinarySearchST(int capacity){
+  keys = (Key[]) new Comparable[capacity];
+  vals = (Value[]) new Comparable[capacity];
+}
+
+public int size() {
+  return N;
+}
+
+public Value get(Key key) {
+  if(isEmpty()) return null;
+  int i = rank(key);
+  if(i &amp;lt; N &amp;amp;&amp;amp; keys[i].compareTo(key) == 0) return vals[i];
+  else return null;
+}
+
+public int rank(Key key) {
+  int lo = 0;
+  int hi = N - 1;
+  while(hi &amp;gt; lo) {
+    int mid = lo + (hi - lo)/2;
+    int cmp = key.compareTo(keys[mid]);
+    if (cmp &amp;lt; 0) hi = mid - 1;
+    else if (cmp &amp;gt; 0) lo = mid + 1;
+    else return mid;
+  }
+  return lo;
+}
+
+public void put(Key key, Value val) {
+  int i = rank(key);
+  if (i &amp;lt; N &amp;amp;&amp;amp; keys[i].compareTo(key) == 0) {
+    vals[i] = val;
+    return;
+  }
+  // key not exist, insert into right place
+  for (int j = N; j &amp;gt; i; j--) {
+    keys[j] = keys[j - 1];
+    vals[j] = vals[j - 1];
+  }
+  keys[i] = key;
+  vals[i] = val;
+  N++;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  }&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;- Binary search tree&amp;#10;&amp;#10;binary tree + restriction that key in any node is lager than the keys in all nodes in the node&amp;#39;s left subtree and smaller than the keys in all nodes in that node&amp;#39;s right subtree.&amp;#10;&amp;#10;best: balanced, lgN&amp;#10;&amp;#10;worst: lined, N&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;public class BST&lt;key extends=&quot;&quot; comparable&lt;key=&quot;&quot;&gt;, Value&amp;gt; {&lt;br&gt;  private Node root;&lt;br&gt;  private class Node {&lt;br&gt;    Key key;&lt;br&gt;    Value val;&lt;br&gt;    Node left;&lt;br&gt;    Node right;&lt;br&gt;    private int N;&lt;/key&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public Node(Key key, Value val, int N) {
+  this.key = key;
+  this.val = val;
+  this.N = N;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  }&lt;/p&gt;
+&lt;p&gt;  public int size() {&lt;br&gt;    return size(root);&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public int size(Node x) {&lt;br&gt;    if (x == null) return null;&lt;br&gt;    else return x.N;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Value get(Key key) {&lt;br&gt;    return get(root, key)&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Value get(Node x, Key key) {&lt;br&gt;    if (x == null) return null;&lt;br&gt;    int cmp = key.compareTo(x.key);&lt;br&gt;    if(cmp &amp;lt; 0) return get(x.left, key);&lt;br&gt;    else if (cmp &amp;gt; 0) return get(x.right, key);&lt;br&gt;    else return x.val;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public void put(Key key, Value val) {&lt;br&gt;    root = put(root, key, val); // tricky, if root is null&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Node put(Node x, Key key, Value val) {&lt;br&gt;    if (x == null) return new Node(key, val, 1);&lt;br&gt;    int cmp = key.compareTo(x.key);&lt;br&gt;    if(cmp &amp;lt; 0) x.left = put(x.left, key, val);&lt;br&gt;    else if (cmp &amp;gt; 0) x.right = put(x.right, key, val);&lt;br&gt;    else x.val = val;&lt;br&gt;    x.N = 1 + size(x.left) + size(x.right); // reset N on the way up the tree&lt;br&gt;    return x;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Key min() {&lt;br&gt;    return min(root).key;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Node min(Node x) {&lt;br&gt;    if(x.left == null) return x;&lt;br&gt;    return min(x.left);&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Key floor(Key key) {&lt;br&gt;    Node x = floor(root, key);&lt;br&gt;    if(x == null) return null;&lt;br&gt;    return x.key;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Node floor(Node x, Key key) {&lt;br&gt;    if (x == null) return null;&lt;br&gt;    int cmp = key.compareTo(x.key);&lt;br&gt;    if (cmp == 0) return x;&lt;br&gt;    if (cmp &amp;lt; 0) return (x.left, key);&lt;br&gt;    Node t = floor(x.right, key); // right branch is a little complex: if any of nodes in right is larger than key&lt;br&gt;    if(t != null) return t;&lt;br&gt;    else return x;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Key select(int k) {&lt;br&gt;    return select(root, k).key;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public Node select(Node x, int k) {&lt;br&gt;    if (x == null) return null; // when root == null&lt;br&gt;    int t = size(x.left);&lt;br&gt;    if (t &amp;gt; k) return select(x.left, k);&lt;br&gt;    else if (t &amp;lt; k) return select(x.right, k - t - 1);&lt;br&gt;    else return x;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public int rank(Key key) {&lt;br&gt;    return rank(root, key);&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  public int rank(Node x, Key key) {&lt;br&gt;    if (x == null) return 0; // when root == null&lt;br&gt;    int cmp = key.compareTo(x.key);&lt;br&gt;    if (cmp &amp;lt; 0) return rank(x.left, key);&lt;br&gt;    else if (cmp &amp;gt; 0) return 1 + size(x.left) + rank(x.right, key);&lt;br&gt;    else return size(x.left);&lt;br&gt;  }&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;### 2-3 tree&amp;#10;&amp;#10;### LLRB(left leaning red black) tree&amp;#10;&amp;#10;### Hash Table&amp;#10;&amp;#10;- Hash function&amp;#10;&amp;#10;converting a hashCode() to an array index:&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;private int hash(Key x) {&lt;br&gt;  return (x.hashCode() &amp;amp; 0x7FFFFFFF) % M;&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;Assumption: The hash functions that we use uniformly and independently distribute keys among the integer value btw 0 and M - 1&amp;#10;&amp;#10;- Collision resolution&amp;#10;&amp;#10;  - Separate chaining: to build a linked list of key-value pairs whose keys hash to the index for each of the array indices.&amp;#10;&amp;#10;  The relation between N and M is not that critical.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  public class SeparateChainingHashST&lt;key, value=&quot;&quot;&gt; {&lt;br&gt;    private int N;&lt;br&gt;    private int M;&lt;/key,&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;private SeparateChainingHashST&amp;lt;Key, Value&amp;gt;[] st;
+
+public SeparateChainingHashST(int M) {
+  this.M = M;
+  st = (SeparateChainingHashST&amp;lt;Key, Value&amp;gt;[]) new SequentialSearchST[M];
+  for (int i = 0; i &amp;lt; M; i ++) {
+    st[i] = new SequentialSearchST();
+  }
+}
+
+private int hash(Key x) {
+  return (x.hashCode() &amp;amp; 0x7FFFFFFF) % M;
+}
+
+public int get(Key key) {
+  return (Value) st[hash(key)].get(key);
+}
+
+public void put(Key key, Value val) {
+  if(N &amp;gt;= M/2) resize(2M);
+  st[hash(key)].put(key, val);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  }&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- open addressing hashing: linear probing: when there is a collision, then we just check the next entry in the table.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  public class LinearProbingHashST&lt;key, value=&quot;&quot;&gt;{&lt;br&gt;    private int N;&lt;br&gt;    private int M = 16;&lt;br&gt;    private Key[] keys;&lt;br&gt;    private Value[] vals;&lt;/key,&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public LinearProbingHashST() {
+  keys = new Key[M];
+  vals = new Value[M];
+}
+
+private int hash(Key x) {
+  return (x.hashCode() &amp;amp; 0x7FFFFFFF) % M;
+}
+
+public void put(Key key, Value val) {
+  if (N &amp;gt;= M/2) resize(2M);
+
+  int i;
+  for(i = hash(key); keys[i] != null; i = (i + 1) % M) {
+    if (keys[i].equals(key)) {
+      vals[i] = val;
+      return;
+    }
+  }
+  keys[i] = key;
+  vals[i] = val;
+  N++;
+}
+
+public Value get(Key key) {
+  for(i = hash(key); keys[i] != null; i = (i + 1) % M) {
+    if (keys[i].equals(key)) {
+      return vals[i];
+    }
+  }
+  return null;
+}
+
+public void resize(int cap) { // to ensure load factor never exceeds 1/2
+    LinearProbingHashST&amp;lt;Key, Value&amp;gt; t;
+    t = new LinearProbingHashST&amp;lt;Key, Value&amp;gt;(cap);
+    for (int i = 0; i &amp;lt; M; i++) {
+      if(keys[i] != null) {
+        t.put(keys[i], vals[i]);
+      }
+    }
+
+    keys = t.keys;
+    vals = t.vals;
+    M = t.M;
+}
+
+public void delete(Key key) {
+  // set keys[i] vals[i] to null, all sequential keys have to be removed and re-put again until null
+  // resize(M/2) if (N &amp;gt; 0 &amp;amp;&amp;amp; N &amp;lt;= M/8)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  }&lt;br&gt;  ```&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Java basics&lt;/li&gt;
+&lt;li&gt;Complexity&lt;/li&gt;
+&lt;li&gt;Elementary sorts&lt;/li&gt;
+&lt;li&gt;Shuffle&lt;/li&gt;
+&lt;li&gt;Merge sort&lt;/li&gt;
+&lt;li&gt;Quick sort&lt;/li&gt;
+&lt;li&gt;Priority queue&lt;/li&gt;
+&lt;li&gt;Heap sort&lt;/li&gt;
+&lt;li&gt;Symbol tables&lt;/li&gt;
+&lt;li&gt;Binary tree&lt;/li&gt;
+&lt;li&gt;Binary search tree&lt;/li&gt;
+&lt;li&gt;Balanced search tree&lt;/li&gt;
+&lt;li&gt;Hash Table&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sort:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;#&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;inplace?&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;stable?&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;worst&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;avr&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;best&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;extra space&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;remarks&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;selection&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;insertion&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/4&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;depends on order of items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;shell&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;?&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;?&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;merge&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;quick&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.39NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;probabilistic guarantee&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;3-way quick&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;n^2/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.39NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;probabilistic guarantee also depends on order of items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;heap&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Y&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;NlogN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Search:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;underlying data structure&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;implementation&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;pros&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;cons&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;guarantee search&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;guarantee insert&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;avr search hit&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;avr insert&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;linked list(sequential search)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;SequentialSearchST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;best for tiny STs&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;slow for large STs&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N/2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;ordered array(binary search)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;BinarySearchST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;optimal search and space, order-based ops&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;slow insert&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N/2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;binary search tree&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;BST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;easy to implement, order-based ops&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;no guarantee space for links&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.39lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.39lgN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;balanced BST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;RedBlackBST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;optimal search and insert, order-based ops&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;space for links&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;lgN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;hash table&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;SeparateChainingHashST, linearProbingHashST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;fast search/insert for common types of data&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;need hash for each type, no order-based ops, space for links/empty&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;SeparateChainingHashST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;array of lists&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;lgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N/(2M)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N/M&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;linearProbingHashST&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;parallel arrays&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;–&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;clgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;clgN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;1.5&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&amp;lt;2.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="Tech Notes" scheme="http://victoriahong.com/categories/Tech-Notes/"/>
+    
+    
+      <category term="Algorithms" scheme="http://victoriahong.com/tags/Algorithms/"/>
+    
+      <category term="Notes" scheme="http://victoriahong.com/tags/Notes/"/>
+    
+  </entry>
   
   <entry>
     <title>BuzzWord</title>
@@ -723,7 +1623,7 @@
     <link href="http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/"/>
     <id>http://victoriahong.com/2016/05/Algorithms-Part-I-Week-2/</id>
     <published>2016-05-07T06:35:09.000Z</published>
-    <updated>2016-05-18T06:26:47.000Z</updated>
+    <updated>2016-08-12T04:28:59.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Stacks-and-Queues-amp-Elementary-Sorts&quot;&gt;&lt;a href=&quot;#Stacks-and-Queues-amp-Elementary-Sorts&quot; class=&quot;headerlink&quot; title=&quot;Stacks and Queues &amp;amp; Elementary Sorts&quot;&gt;&lt;/a&gt;Stacks and Queues &amp;amp; Elementary Sorts&lt;/h2&gt;&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Modular programming style&lt;/li&gt;
@@ -742,6 +1642,7 @@
 &lt;/ul&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;Stacks&quot;&gt;&lt;a href=&quot;#Stacks&quot; class=&quot;headerlink&quot; title=&quot;Stacks&quot;&gt;&lt;/a&gt;Stacks&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Linked-list implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;push and pop from head.&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class LinkedStackOfStrings &amp;#123;&amp;#10;&amp;#9;private Node first = null;&amp;#10;&amp;#10;&amp;#9;private class Node &amp;#123;&amp;#10;&amp;#9;&amp;#9;String item;&amp;#10;&amp;#9;&amp;#9;Node next;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public boolean isEmpty()&amp;#123;&amp;#10;&amp;#9;&amp;#9;return first == null;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public String pop()&amp;#123;&amp;#10;&amp;#9;&amp;#9;String item = first.item;&amp;#10;&amp;#9;&amp;#9;first = first.next;&amp;#10;&amp;#9;&amp;#9;return item;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public void push(String item)&amp;#123;&amp;#10;&amp;#9;&amp;#9;Node oldFirst = first;&amp;#10;&amp;#9;&amp;#9;first = new Node();&amp;#10;&amp;#9;&amp;#9;first.item = item;&amp;#10;&amp;#9;&amp;#9;first.next = oldFirst;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;Performance:&lt;/p&gt;
 &lt;ul&gt;
@@ -804,6 +1705,7 @@
 &lt;li&gt;8N when full; 32N when one-quarter full&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;Queue&quot;&gt;&lt;a href=&quot;#Queue&quot; class=&quot;headerlink&quot; title=&quot;Queue&quot;&gt;&lt;/a&gt;Queue&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Linked-list implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;enqueue from tail, dequeue from head.&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class LinkedQueueOfStrings&amp;#123;&amp;#10;&amp;#9;private Node first, last;&amp;#10;&amp;#10;&amp;#9;private class Node &amp;#123;&amp;#10;&amp;#9;&amp;#9;String item;&amp;#10;&amp;#9;&amp;#9;Node next;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public boolean isEmpty()&amp;#123;&amp;#10;&amp;#9;&amp;#9;return first == null;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public void enqueue(String item)&amp;#123;&amp;#10;&amp;#9;&amp;#9;Node oldLast = last;&amp;#10;&amp;#9;&amp;#9;last = new Node();&amp;#10;&amp;#9;&amp;#9;last.item = item;&amp;#10;&amp;#9;&amp;#9;last.next = null;&amp;#10;&amp;#9;&amp;#9;if (isEmpty()) first = last;&amp;#10;&amp;#9;&amp;#9;else oldLast.next = last;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#10;&amp;#9;public String dequeue()&amp;#123;&amp;#10;&amp;#9;&amp;#9;String item = first.item;&amp;#10;&amp;#9;&amp;#9;first = first.next;&amp;#10;&amp;#9;&amp;#9;if (isEmpty()) last = null;&amp;#10;&amp;#9;&amp;#9;return item;&amp;#10;&amp;#9;&amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;Generics&quot;&gt;&lt;a href=&quot;#Generics&quot; class=&quot;headerlink&quot; title=&quot;Generics&quot;&gt;&lt;/a&gt;Generics&lt;/h3&gt;&lt;p&gt;In a nutshell, generics enable types (classes and interfaces) to be parameters when defining classes, interfaces and methods.&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class FixedCapacityStack(int capacity)&amp;#123;&amp;#10;&amp;#9;s = (Item[]) new Object[capacity];&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -1123,7 +2025,7 @@
     <link href="http://victoriahong.com/2016/04/Algorithms-Part-I-Week-0-1/"/>
     <id>http://victoriahong.com/2016/04/Algorithms-Part-I-Week-0-1/</id>
     <published>2016-04-22T00:45:34.000Z</published>
-    <updated>2016-04-22T06:25:53.000Z</updated>
+    <updated>2016-08-12T04:28:57.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Union-Find-amp-Memory-Usage-for-Algorithm&quot;&gt;&lt;a href=&quot;#Union-Find-amp-Memory-Usage-for-Algorithm&quot; class=&quot;headerlink&quot; title=&quot;Union-Find &amp;amp; Memory Usage for Algorithm&quot;&gt;&lt;/a&gt;Union-Find &amp;amp; Memory Usage for Algorithm&lt;/h2&gt;&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -1146,8 +2048,8 @@
 &lt;tr&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;quick-union&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;tree height&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;tree height&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;union时只需要更新一个顶点的祖先&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1156,6 +2058,12 @@
 &lt;td style=&quot;text-align:center&quot;&gt;lg N&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;lg N&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;加一个size记录，小树总是连在大树上&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;weighted QU path compression&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;~1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;~1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1318,10 +2226,11 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;padding&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;8x&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;to be 8x&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;Object overhead includes: Reference to the object’s class, GC info, synchronization info.&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -1347,8 +2256,8 @@
 &lt;tr&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;quick-union&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;tree height&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;tree height&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;union时只需要更新一个顶点的祖先&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1357,6 +2266,12 @@
 &lt;td style=&quot;text-align:center&quot;&gt;lg N&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;lg N&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;加一个size记录，小树总是连在大树上&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;weighted QU path compression&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;N&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;~1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;~1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

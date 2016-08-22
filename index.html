@@ -233,6 +233,232 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2016/08/AlgorithmsNotes/">
+                            Algorithms 笔记
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Mon Aug 08 2016 16:39:00 GMT-0700">
+	
+		    Aug 08, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Tech-Notes/">Tech Notes</a>
+
+
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Java basics</li>
+<li>Complexity</li>
+<li>Elementary sorts</li>
+<li>Shuffle</li>
+<li>Merge sort</li>
+<li>Quick sort</li>
+<li>Priority queue</li>
+<li>Heap sort</li>
+<li>Symbol tables</li>
+<li>Binary tree</li>
+<li>Binary search tree</li>
+<li>Balanced search tree</li>
+<li>Hash Table</li>
+</ul>
+<p>Sort:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:center">inplace?</th>
+<th style="text-align:center">stable?</th>
+<th style="text-align:center">worst</th>
+<th style="text-align:center">avr</th>
+<th style="text-align:center">best</th>
+<th style="text-align:center">extra space</th>
+<th style="text-align:center">remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">selection</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">n^2/2</td>
+<td style="text-align:center">n^2/2</td>
+<td style="text-align:center">n^2/2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">insertion</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">n^2/2</td>
+<td style="text-align:center">n^2/4</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">depends on order of items</td>
+</tr>
+<tr>
+<td style="text-align:center">shell</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">merge</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">NlogN</td>
+<td style="text-align:center">NlogN</td>
+<td style="text-align:center">NlogN</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">quick</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">n^2/2</td>
+<td style="text-align:center">1.39NlogN</td>
+<td style="text-align:center">NlogN</td>
+<td style="text-align:center">lgN</td>
+<td style="text-align:center">probabilistic guarantee</td>
+</tr>
+<tr>
+<td style="text-align:center">3-way quick</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">n^2/2</td>
+<td style="text-align:center">1.39NlogN</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">lgN</td>
+<td style="text-align:center">probabilistic guarantee also depends on order of items</td>
+</tr>
+<tr>
+<td style="text-align:center">heap</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">2NlogN</td>
+<td style="text-align:center">2NlogN</td>
+<td style="text-align:center">NlogN</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<p>Search:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">underlying data structure</th>
+<th style="text-align:center">implementation</th>
+<th style="text-align:center">pros</th>
+<th style="text-align:center">cons</th>
+<th style="text-align:center">guarantee search</th>
+<th style="text-align:center">guarantee insert</th>
+<th style="text-align:center">avr search hit</th>
+<th style="text-align:center">avr insert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">linked list(sequential search)</td>
+<td style="text-align:center">SequentialSearchST</td>
+<td style="text-align:center">best for tiny STs</td>
+<td style="text-align:center">slow for large STs</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N/2</td>
+<td style="text-align:center">N</td>
+</tr>
+<tr>
+<td style="text-align:center">ordered array(binary search)</td>
+<td style="text-align:center">BinarySearchST</td>
+<td style="text-align:center">optimal search and space, order-based ops</td>
+<td style="text-align:center">slow insert</td>
+<td style="text-align:center">lgN</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">lgN</td>
+<td style="text-align:center">N/2</td>
+</tr>
+<tr>
+<td style="text-align:center">binary search tree</td>
+<td style="text-align:center">BST</td>
+<td style="text-align:center">easy to implement, order-based ops</td>
+<td style="text-align:center">no guarantee space for links</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">1.39lgN</td>
+<td style="text-align:center">1.39lgN</td>
+</tr>
+<tr>
+<td style="text-align:center">balanced BST</td>
+<td style="text-align:center">RedBlackBST</td>
+<td style="text-align:center">optimal search and insert, order-based ops</td>
+<td style="text-align:center">space for links</td>
+<td style="text-align:center">2lgN</td>
+<td style="text-align:center">2lgN</td>
+<td style="text-align:center">lgN</td>
+<td style="text-align:center">lgN</td>
+</tr>
+<tr>
+<td style="text-align:center">hash table</td>
+<td style="text-align:center">SeparateChainingHashST, linearProbingHashST</td>
+<td style="text-align:center">fast search/insert for common types of data</td>
+<td style="text-align:center">need hash for each type, no order-based ops, space for links/empty</td>
+</tr>
+<tr>
+<td style="text-align:center">SeparateChainingHashST</td>
+<td style="text-align:center">array of lists</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">&lt;lgN</td>
+<td style="text-align:center">&lt;lgN</td>
+<td style="text-align:center">N/(2M)</td>
+<td style="text-align:center">N/M</td>
+</tr>
+<tr>
+<td style="text-align:center">linearProbingHashST</td>
+<td style="text-align:center">parallel arrays</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">clgN</td>
+<td style="text-align:center">clgN</td>
+<td style="text-align:center">&lt;1.5</td>
+<td style="text-align:center">&lt;2.5</td>
+</tr>
+</tbody>
+</table>
+                    
+                        <a href="/2016/08/AlgorithmsNotes/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2016/05/BuzzWord/">
                             BuzzWord
                         </a>
@@ -619,62 +845,6 @@
                                 Comment and share
                             </a>
                         </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/05/Algorithms-Part-I-Week-2/">
-                            Algorithms Part I Week 2
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Fri May 06 2016 23:35:09 GMT-0700">
-	
-		    May 06, 2016
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Tech-Notes/">Tech Notes</a>
-
-
-    
-</div>
-            </div>
-            
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <h2 id="Stacks-and-Queues-amp-Elementary-Sorts"><a href="#Stacks-and-Queues-amp-Elementary-Sorts" class="headerlink" title="Stacks and Queues &amp; Elementary Sorts"></a>Stacks and Queues &amp; Elementary Sorts</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul>
-<li>Modular programming style</li>
-<li>For stack, push pop<ul>
-<li>Each operation cost constant time in the worst case</li>
-<li>Extra time and space to deal with the link</li>
-</ul>
-</li>
-<li>For queue, enqueue dequeue<ul>
-<li>Each operation cost constant amortized time</li>
-<li>less wasted space</li>
-</ul>
-</li>
-<li>Generics</li>
-<li>Iterator</li>
-</ul>
-                    
-                        <a href="/2016/05/Algorithms-Part-I-Week-2/" class="postShorten-excerpt_link link">
-                            Continue reading
-                        </a>
-                        
                     
                 </div>
             

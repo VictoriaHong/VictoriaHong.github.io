@@ -35,7 +35,7 @@ Extra time and space to deal with the link
 
 
 For queu">
-<meta property="og:updated_time" content="2016-05-18T06:26:47.000Z">
+<meta property="og:updated_time" content="2016-08-12T04:28:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms Part I Week 2">
 <meta name="twitter:description" content="Stacks and Queues &amp;amp; Elementary SortsOverview
@@ -290,6 +290,7 @@ For queu">
 </ul>
 <a id="more"></a>
 <h3 id="Stacks"><a href="#Stacks" class="headerlink" title="Stacks"></a>Stacks</h3><p><strong>Linked-list implementation</strong></p>
+<p>push and pop from head.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedStackOfStrings &#123;&#10;&#9;private Node first = null;&#10;&#10;&#9;private class Node &#123;&#10;&#9;&#9;String item;&#10;&#9;&#9;Node next;&#10;&#9;&#125;&#10;&#10;&#9;public boolean isEmpty()&#123;&#10;&#9;&#9;return first == null;&#10;&#9;&#125;&#10;&#10;&#9;public String pop()&#123;&#10;&#9;&#9;String item = first.item;&#10;&#9;&#9;first = first.next;&#10;&#9;&#9;return item;&#10;&#9;&#125;&#10;&#10;&#9;public void push(String item)&#123;&#10;&#9;&#9;Node oldFirst = first;&#10;&#9;&#9;first = new Node();&#10;&#9;&#9;first.item = item;&#10;&#9;&#9;first.next = oldFirst;&#10;&#9;&#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <p>Performance:</p>
 <ul>
@@ -352,6 +353,7 @@ For queu">
 <li>8N when full; 32N when one-quarter full</li>
 </ul>
 <h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><p><strong>Linked-list implementation</strong></p>
+<p>enqueue from tail, dequeue from head.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedQueueOfStrings&#123;&#10;&#9;private Node first, last;&#10;&#10;&#9;private class Node &#123;&#10;&#9;&#9;String item;&#10;&#9;&#9;Node next;&#10;&#9;&#125;&#10;&#10;&#9;public boolean isEmpty()&#123;&#10;&#9;&#9;return first == null;&#10;&#9;&#125;&#10;&#10;&#9;public void enqueue(String item)&#123;&#10;&#9;&#9;Node oldLast = last;&#10;&#9;&#9;last = new Node();&#10;&#9;&#9;last.item = item;&#10;&#9;&#9;last.next = null;&#10;&#9;&#9;if (isEmpty()) first = last;&#10;&#9;&#9;else oldLast.next = last;&#10;&#9;&#125;&#10;&#10;&#9;public String dequeue()&#123;&#10;&#9;&#9;String item = first.item;&#10;&#9;&#9;first = first.next;&#10;&#9;&#9;if (isEmpty()) last = null;&#10;&#9;&#9;return item;&#10;&#9;&#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Generics"><a href="#Generics" class="headerlink" title="Generics"></a>Generics</h3><p>In a nutshell, generics enable types (classes and interfaces) to be parameters when defining classes, interfaces and methods.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class FixedCapacityStack(int capacity)&#123;&#10;&#9;s = (Item[]) new Object[capacity];&#10;&#125;</span><br></pre></td></tr></table></figure>

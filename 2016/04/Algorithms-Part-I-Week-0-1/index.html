@@ -36,14 +36,9 @@ union时loop更新有共同祖先的顶点
 
 quick-union
 N
-N
-N
-union时只需要更新一个顶点的祖先
-
-
-weighted QU
-N
-lg N">
+tree height
+tree height
+union时只需要更新一个顶点的祖先">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Algorithms Part I - Week 0 & 1">
 <meta property="og:url" content="http://victoriahong.com/2016/04/Algorithms-Part-I-Week-0-1/index.html">
@@ -69,15 +64,10 @@ union时loop更新有共同祖先的顶点
 
 quick-union
 N
-N
-N
-union时只需要更新一个顶点的祖先
-
-
-weighted QU
-N
-lg N">
-<meta property="og:updated_time" content="2016-04-22T06:25:53.000Z">
+tree height
+tree height
+union时只需要更新一个顶点的祖先">
+<meta property="og:updated_time" content="2016-08-12T04:28:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms Part I - Week 0 & 1">
 <meta name="twitter:description" content="Union-Find &amp;amp; Memory Usage for AlgorithmOverview
@@ -101,14 +91,9 @@ union时loop更新有共同祖先的顶点
 
 quick-union
 N
-N
-N
-union时只需要更新一个顶点的祖先
-
-
-weighted QU
-N
-lg N">
+tree height
+tree height
+union时只需要更新一个顶点的祖先">
     
     
         
@@ -357,8 +342,8 @@ lg N">
 <tr>
 <td style="text-align:center">quick-union</td>
 <td style="text-align:center">N</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">N</td>
+<td style="text-align:center">tree height</td>
+<td style="text-align:center">tree height</td>
 <td style="text-align:center">union时只需要更新一个顶点的祖先</td>
 </tr>
 <tr>
@@ -367,6 +352,12 @@ lg N">
 <td style="text-align:center">lg N</td>
 <td style="text-align:center">lg N</td>
 <td style="text-align:center">加一个size记录，小树总是连在大树上</td>
+</tr>
+<tr>
+<td style="text-align:center">weighted QU path compression</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">~1</td>
+<td style="text-align:center">~1</td>
 </tr>
 </tbody>
 </table>
@@ -529,10 +520,11 @@ lg N">
 </tr>
 <tr>
 <td style="text-align:center">padding</td>
-<td style="text-align:center">8x</td>
+<td style="text-align:center">to be 8x</td>
 </tr>
 </tbody>
 </table>
+<p>Object overhead includes: Reference to the object’s class, GC info, synchronization info.</p>
 
             
         </div>
